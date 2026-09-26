@@ -28,7 +28,7 @@ Every module notebook follows the same structure as the MalariaGEN–PAMCA cours
    ```
 8. **Quiz**: 3–5 multiple-choice questions in `quizzes/<notebook-stem>.json` (jupyterquiz format), shown with
    ```python
-   %pip install -q jupyterquiz
+   %pip install -q jupyterquiz==2.9.6.4
    from jupyterquiz import display_quiz
    display_quiz("https://raw.githubusercontent.com/sanjaynagi/malaria-software-training/main/quizzes/<notebook-stem>.json")
    ```

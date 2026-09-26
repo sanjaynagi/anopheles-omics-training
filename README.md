@@ -12,10 +12,19 @@ It follows on from the [MalariaGEN–PAMCA course](https://anopheles-genomic-sur
 
 ## Build locally
 
+We use [pixi](https://pixi.sh) to manage the environment. Install pixi once
+(`curl -fsSL https://pixi.sh/install.sh | sh`), then from the repository root:
+
 ```bash
-pip install -r requirements.txt
-jupyter book start   # live preview
-jupyter book build --html
+pixi install      # create the environment from pixi.lock
+pixi run start    # live preview of the book
+pixi run build    # build the HTML book into _build/
+pixi run lab      # run the course notebooks locally in JupyterLab
 ```
+
+`pixi.toml` lists what we asked for; `pixi.lock` records the exact versions for Linux and macOS.
+Colab users do not need any of this: each notebook installs its own pinned packages.
+`requirements.txt` is kept for anyone who prefers `pip install -r requirements.txt`
+(book build only).
 
 Licence: [CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/).

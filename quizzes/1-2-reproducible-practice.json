@@ -52,7 +52,7 @@
     ]
   },
   {
-    "question": "What does a lock file (e.g. pixi.lock) add compared with an environment file that pins your main packages?",
+    "question": "What does pixi.lock add compared with the pinned packages listed in pixi.toml?",
     "type": "multiple_choice",
     "answers": [
       {
@@ -118,9 +118,9 @@
         "feedback": "READMEs should always be committed."
       },
       {
-        "answer": "An environment.yml file",
+        "answer": "pixi.toml and pixi.lock",
         "correct": false,
-        "feedback": "Environment files should be committed."
+        "feedback": "Both should be committed so others can recreate the environment."
       },
       {
         "answer": "A small script that makes your dossier figures",

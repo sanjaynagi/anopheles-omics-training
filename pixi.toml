@@ -1,0 +1,36 @@
+# Environment for building the course book and running the course notebooks locally.
+# Colab users do not need this: each notebook pins its own packages with %pip.
+# Usage:  pixi install       # create the environment from pixi.lock
+#         pixi run start     # live preview of the book
+#         pixi run build     # build the HTML book
+#         pixi run lab       # open the notebooks in JupyterLab
+
+[workspace]
+name = "malaria-software-training"
+description = "Beyond WGS: transcriptomics, selection and assay design in malaria vectors"
+channels = ["conda-forge"]
+platforms = ["linux-64", "osx-64", "osx-arm64"]
+
+[tasks]
+build = "jupyter book build --html"
+start = "jupyter book start"
+lab = "jupyter lab"
+
+[dependencies]
+python = "3.11.*"
+jupyter-book = ">=2.1,<3"
+jupyterlab = ">=4,<5"
+pandas = "==2.2.2"     # malariagen_data 15.9.0 requires exactly this
+plotly = ">=5.24,<6"     # anoexpress needs plotly 5
+numpy = "2.0.*"          # malariagen_data needs numpy >=2.0.2,<2.1
+packaging = ">=24,<26"   # snakemake 9.27 needs packaging <26
+graphviz = "*"        # the `dot` program, for Snakemake DAGs in module 1.3
+pip = "*"
+
+# Not on conda-forge, so installed from PyPI
+[pypi-dependencies]
+malariagen_data = "==15.9.0"
+anoexpress = "==0.3.3"
+anoprimer = "==2.0.8"
+jupyterquiz = "==2.9.6.4"
+snakemake = "==9.27.0"   # module 1.3
