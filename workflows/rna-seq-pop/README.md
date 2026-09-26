@@ -42,12 +42,20 @@ release. The `master` branch has since renamed rules and changed the
 variants-of-interest outputs, so always check out the tag.
 
 Snakemake: **7.32.4** (the version RNA-Seq-Pop's CI uses), with `pulp<2.8`
-(newer pulp breaks Snakemake 7). Conda must use flexible channel priority.
+(newer pulp breaks Snakemake 7).
 
-```bash
-mamba create -n snakemake -c conda-forge -c bioconda snakemake=7.32.4 "pulp<2.8" python=3.11 graphviz
-conda config --set channel_priority flexible
-```
+Two package managers are involved:
+
+- **pixi** runs Snakemake itself. The environment is `workflows/pixi.toml` (with its lock file); in
+  the Codespace it is activated in every terminal by a shell hook in `~/.bashrc`. Outside the
+  Codespace: `pixi shell --manifest-path workflows/pixi.toml`.
+- **conda** builds RNA-Seq-Pop's per-rule environments (`workflow/envs/*.yaml`) when Snakemake runs
+  with `--use-conda`, so it must be installed too, with `channel_priority flexible`. The Codespace's
+  Snakemake profile (`$SNAKEMAKE_PROFILE`) sets `conda-frontend: conda` (Snakemake 7 cannot drive
+  mamba 2) and `rerun-incomplete: true`. Elsewhere, pass `--conda-frontend conda --rerun-incomplete`
+  yourself.
+
+We recommend pixi for participants' own projects.
 
 ## Reference files
 
@@ -73,10 +81,9 @@ Snakemake is still running. (If it stops, restart it and rerun the same command;
 Snakemake picks up where it left off.)
 
 ```bash
-# 1. Get RNA-Seq-Pop at the pinned release, next to the course repo
-cd /workspaces
-git clone --branch v2.3.0 --depth 1 https://github.com/sanjaynagi/rna-seq-pop.git
+# 1. The Codespace setup already cloned RNA-Seq-Pop v2.3.0 here; check the tag
 cd /workspaces/rna-seq-pop
+git describe --tags     # v2.3.0
 
 # 2. Add the Busia configuration
 cp /workspaces/malaria-software-training/workflows/rna-seq-pop/config.yaml config/config.yaml
@@ -98,11 +105,11 @@ snakemake --rulegraph | sed -n '/^digraph/,$p' | dot -Tsvg > rulegraph.svg
 snakemake --cores 4 --use-conda --conda-create-envs-only
 
 # 7. Run in the background and follow the log
-nohup snakemake --cores 4 --use-conda --rerun-incomplete --keep-going > snakemake-run.log 2>&1 &
+nohup snakemake --cores 4 --use-conda --keep-going > snakemake-run.log 2>&1 &   # profile adds --rerun-incomplete
 tail -f snakemake-run.log
 ```
 
-If `mamba` is not installed, add `--conda-frontend conda` (Snakemake 7 uses mamba by default).
+Outside the Codespace (no profile), add `--conda-frontend conda --rerun-incomplete` to these commands.
 
 When it finishes, open `results/rna-seq-pop-results/_build/html/index.html` (the results
 book) and `results/qc/multiQC.html`.
@@ -118,7 +125,7 @@ cd rna-seq-pop
 cp <course>/workflows/rna-seq-pop/{config.yaml,samples.tsv} config/
 mv ../busia-full/reads/* resources/reads/
 mv ../busia-full/reference/* resources/reference/
-snakemake --cores 32 --use-conda --rerun-incomplete --keep-going
+snakemake --cores 32 --use-conda --conda-frontend conda --rerun-incomplete --keep-going
 # or with a cluster profile, e.g. snakemake --profile slurm --use-conda --jobs 50
 ```
 

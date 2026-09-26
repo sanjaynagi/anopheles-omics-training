@@ -104,7 +104,7 @@
     ]
   },
   {
-    "question": "Why do we clone RNA-Seq-Pop with `--branch v2.3.0` rather than the default branch?",
+    "question": "Why does the codespace use RNA-Seq-Pop at the tag v2.3.0 rather than the default branch?",
     "type": "multiple_choice",
     "answers": [
       {
@@ -118,9 +118,9 @@
         "feedback": "It does."
       },
       {
-        "answer": "Git cannot clone the default branch with --depth 1",
+        "answer": "Snakemake cannot run the default branch",
         "correct": false,
-        "feedback": "It can."
+        "feedback": "It can; the problem is that it keeps changing."
       },
       {
         "answer": "v2.3.0 runs faster",
