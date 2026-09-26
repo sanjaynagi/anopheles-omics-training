@@ -1,4 +1,6 @@
-# Beyond WGS: transcriptomics, selection and assay design in malaria vectors
+# Anopheles Omics: from gene expression to field assays
+
+*Transcriptomics, selection and assay design for malaria vector surveillance*
 
 This course follows on from the
 [MalariaGEN–PAMCA training course](https://anopheles-genomic-surveillance.github.io/home.html),

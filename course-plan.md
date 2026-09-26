@@ -1,6 +1,6 @@
 # Course plan: from expression to assay in malaria vectors
 
-Working title: **Beyond WGS: transcriptomics, selection and assay design for malaria vector surveillance**
+Title: **Anopheles Omics: from gene expression to field assays**
 
 A 5-day course (and self-paced online book) that follows on from the
 [MalariaGEN–PAMCA course](https://anopheles-genomic-surveillance.github.io/home.html).

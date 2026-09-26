@@ -1,4 +1,6 @@
-# Beyond WGS: transcriptomics, selection and assay design in malaria vectors
+# Anopheles Omics: from gene expression to field assays
+
+*Transcriptomics, selection and assay design for malaria vector surveillance*
 
 Training course materials (Jupyter Book 2 / MyST). The course follows one public study of
 pyrethroid resistance around Lake Victoria, from RNA-seq to field amplicon surveillance, using

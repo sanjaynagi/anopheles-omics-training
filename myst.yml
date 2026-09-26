@@ -1,6 +1,6 @@
 version: 1
 project:
-  title: "Beyond WGS: transcriptomics, selection and assay design in malaria vectors"
+  title: "Anopheles Omics: from gene expression to field assays"
   description: A training course following one study of pyrethroid resistance around Lake Victoria, from RNA-seq to field amplicon surveillance.
   authors:
     - name: Sanjay C. Nagi
@@ -48,3 +48,8 @@ site:
   template: book-theme
   options:
     folders: true
+    logo: _static/logo.svg
+    logo_dark: _static/logo-dark.svg
+    logo_text: Anopheles Omics
+    logo_alt: Anopheles Omics logo, a resting Anopheles mosquito whose abdomen is a DNA double helix
+    favicon: _static/logo.svg
