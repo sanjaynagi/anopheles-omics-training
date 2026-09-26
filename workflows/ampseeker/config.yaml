@@ -1,0 +1,61 @@
+# AmpSeeker config for the course: Ag-vampIR amplicon data from the Siaya (Kenya)
+# and VK7 (Burkina Faso) colonies, SRA PRJNA1207724.
+#
+# Written for AmpSeeker v0.7.0. Copy this file and metadata.tsv into the
+# AmpSeeker config/ folder, then run from the AmpSeeker folder:
+#   snakemake --cores 4 --use-conda --configfile config/siaya.yaml
+# See workflows/ampseeker/README.md.
+
+dataset: siaya-vk7
+platform: illumina
+panel: ag-vampir
+
+# Metadata columns used to group samples in plots and allele frequency tables.
+# The first column is also used for per-cohort sample QC (heterozygosity, PCA outliers).
+# 'taxon' is filled in by the Ag-vampIR species-id step.
+cohort-columns:
+  - location
+  - taxon
+  - cohort
+
+targets: config/ag-vampir.bed
+metadata: config/siaya-metadata.tsv
+
+# We start from FASTQ files downloaded from ENA, not from a MiSeq run folder.
+# With no fq1/fq2 columns in the metadata, AmpSeeker looks for
+#   resources/reads/{sample_id}_1.fastq.gz and resources/reads/{sample_id}_2.fastq.gz
+# (data/prepare_siaya.sh creates these).
+from-bcl: False
+illumina-dir: ""
+fastq:
+  auto: True
+
+# AgamP4 reference (chromosome arms 2L, 2R, 3L, 3R, X) from Ensembl Metazoa release 63,
+# made by data/prepare_siaya.sh. (AmpSeeker's own download script points at VectorBase
+# release 66, which is no longer online.)
+reference-name: AgamP4
+reference-fasta: resources/reference/AgamP4.fa
+reference-gff3: resources/reference/AgamP4.gff3
+reference-snpeffdb: Anopheles_gambiae
+# True: build a snpEff database from the FASTA and GFF3 above. We do this because the
+# prebuilt snpEff 5.1 database download is unreliable.
+custom-snpeffdb: True
+
+quality-control:
+  # Samples whose depth summed over all targets is below this are removed
+  sample-total-reads-threshold: 250
+  amplicon-total-reads-threshold: 1000
+
+  fastp: True
+  coverage: True
+  stats: True
+  multiqc: True
+
+analysis:
+  igv: False
+  sample-map: False  # metadata has colony-origin coordinates; set True to try the map
+  population-structure: True
+  genetic-diversity: True
+  allele-frequencies: True
+
+build-jupyter-book: True

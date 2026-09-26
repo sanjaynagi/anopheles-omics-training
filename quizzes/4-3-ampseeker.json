@@ -1,0 +1,107 @@
+[
+  {
+    "question": "Why does AmpSeeker align amplicon reads to the whole AgamP4 genome rather than only to the amplicon sequences?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Positions are in genome coordinates (as in Ag3 and the atlas), and reads from off-target products map elsewhere instead of being forced onto a target",
+        "correct": true,
+        "feedback": "Correct."
+      },
+      {
+        "answer": "Aligning to the whole genome is faster",
+        "correct": false,
+        "feedback": "No: a genome index is much larger than an amplicon index. The reasons are coordinates and off-target reads."
+      },
+      {
+        "answer": "bwa cannot align to short reference sequences",
+        "correct": false,
+        "feedback": "bwa can align to any reference. The choice is about coordinates and off-target reads."
+      }
+    ]
+  },
+  {
+    "question": "A sample has far more heterozygous calls than other mosquitoes from the same colony. What is the most likely explanation?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "The DNA is contaminated with DNA from another mosquito",
+        "correct": true,
+        "feedback": "Correct. A mixture of two individuals looks heterozygous wherever they differ, so AmpSeeker removes heterozygosity outliers."
+      },
+      {
+        "answer": "The sample has very low coverage",
+        "correct": false,
+        "feedback": "Low coverage tends to cause missing calls, and can make heterozygotes look homozygous, not the reverse."
+      },
+      {
+        "answer": "The sample is resistant to deltamethrin",
+        "correct": false,
+        "feedback": "Resistance alleles do not raise genome-wide heterozygosity across all targets."
+      }
+    ]
+  },
+  {
+    "question": "The Siaya negative controls contain several thousand reads each. What should you conclude?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "There is background contamination or index misassignment on the plate; sample thresholds should sit well above it",
+        "correct": true,
+        "feedback": "Correct. Negative controls measure this background; they should never be analysed as samples."
+      },
+      {
+        "answer": "Nothing: negative controls are always ignored",
+        "correct": false,
+        "feedback": "They are removed from the analysis, but their read counts tell you how much to trust the other wells."
+      },
+      {
+        "answer": "The negative wells accidentally contained mosquitoes and should be kept as samples",
+        "correct": false,
+        "feedback": "Reads in a negative control are a warning about contamination, not extra samples."
+      }
+    ]
+  },
+  {
+    "question": "In the per-marker binomial GLM, Cyp6p4-I236M has an odds ratio of about 3.4. What does this mean?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Each copy of the I236M allele multiplies the odds of surviving the cone test by about 3.4",
+        "correct": true,
+        "feedback": "Correct: an additive model on the 0/1/2 allele count, with alive coded as 1."
+      },
+      {
+        "answer": "Mosquitoes with I236M are 3.4 times more likely to die",
+        "correct": false,
+        "feedback": "Survival (alive) is the outcome coded as 1, and an odds ratio is not a ratio of probabilities."
+      },
+      {
+        "answer": "I236M is 3.4 times more frequent in Siaya than in Busia",
+        "correct": false,
+        "feedback": "The model compares dead and alive mosquitoes within Siaya only."
+      }
+    ]
+  },
+  {
+    "question": "All the Gste and Cyp9k1 tagging SNPs are monomorphic in Siaya. What can we conclude about these Busia sweeps?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Nothing yet: markers that do not vary cannot be tested; new tags for the East African haplotypes are needed",
+        "correct": true,
+        "feedback": "Correct. No variation means no test, not no effect."
+      },
+      {
+        "answer": "The Gste and Cyp9k1 sweeps do not affect deltamethrin resistance",
+        "correct": false,
+        "feedback": "Absence of variation at these tags is not evidence of no effect; the tags were designed from other (mostly West African) haplotypes."
+      },
+      {
+        "answer": "The sweeps must have been lost from Siaya",
+        "correct": false,
+        "feedback": "A sweep can be present on a different haplotype that these SNPs do not tag."
+      }
+    ]
+  }
+]

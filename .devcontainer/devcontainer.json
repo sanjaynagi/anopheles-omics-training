@@ -1,0 +1,39 @@
+{
+  // Codespace for the Snakemake sessions (RNA-Seq-Pop on Day 1, AmpSeeker on Day 4).
+  // Setup is done by .devcontainer/setup.sh when the codespace is first created
+  // (about 5 minutes). See facilitators/codespaces.md.
+  "name": "malaria-software-training (Snakemake)",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+
+  // A 4-core / 16 GB machine. Codespaces offers the smallest machine that meets these.
+  "hostRequirements": {
+    "cpus": 4,
+    "memory": "16gb",
+    "storage": "32gb"
+  },
+
+  "containerEnv": {
+    // Snakemake settings shared by both workflows (written by setup.sh)
+    "SNAKEMAKE_PROFILE": "/home/vscode/.config/snakemake/codespace"
+  },
+
+  "postCreateCommand": "bash .devcontainer/setup.sh",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-toolsai.jupyter",
+        "snakemake.snakemake-lang"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "${containerWorkspaceFolder}/workflows/.pixi/envs/default/bin/python",
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  },
+
+  // Preview the workflow results books (python -m http.server 8000)
+  "forwardPorts": [8000],
+  "remoteUser": "vscode"
+}

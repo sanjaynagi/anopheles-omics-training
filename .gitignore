@@ -7,3 +7,10 @@ workflows/**/results/
 workflows/**/resources/reads/
 workflows/**/.snakemake/
 
+
+# pixi environment and notebook scratch folders
+.pixi/
+course-work/
+
+# pixi environments
+.pixi/
