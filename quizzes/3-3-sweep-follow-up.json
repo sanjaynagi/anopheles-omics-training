@@ -1,0 +1,106 @@
+[
+  {
+    "question": "In a haplotype dendrogram, what is the signature of a selective sweep?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "A large cluster of identical or near-identical haplotypes",
+        "correct": true,
+        "feedback": "Correct. Haplotypes carried to high frequency by selection have had little time to diverge."
+      },
+      {
+        "answer": "Long branches between all haplotypes",
+        "correct": false,
+        "feedback": "That is what a neutral region looks like."
+      },
+      {
+        "answer": "Haplotypes clustering by country",
+        "correct": false,
+        "feedback": "That reflects population structure, not necessarily selection."
+      },
+      {
+        "answer": "Two equal-sized clusters",
+        "correct": false,
+        "feedback": "Not necessarily; this could be an inversion or balancing selection."
+      }
+    ]
+  },
+  {
+    "question": "How did we show that the Cyp9k1 swept haplotype carries the Cyp9k1_Dup8 amplification?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Mosquitoes with one or two swept haplotypes carry Dup8 and mosquitoes without the haplotype almost never do",
+        "correct": true,
+        "feedback": "Correct. CNVs are not in the phased data, so we compare per-mosquito counts."
+      },
+      {
+        "answer": "Dup8 appears as a SNP in the haplotype data",
+        "correct": false,
+        "feedback": "CNVs are not part of the phased SNP haplotypes."
+      },
+      {
+        "answer": "The H12 peak is centred on Cyp9k1",
+        "correct": false,
+        "feedback": "The Busia H12 signal at Cyp9k1 is weak and noisy; it does not show the CNV."
+      },
+      {
+        "answer": "The swept haplotype has higher sequencing coverage",
+        "correct": false,
+        "feedback": "Coverage is measured per mosquito, not per haplotype."
+      }
+    ]
+  },
+  {
+    "question": "Why is a SNP inside an amplified region harder to use as an assay target?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Mosquitoes with extra copies are not diploid there, so genotype calls and allele ratios are distorted",
+        "correct": true,
+        "feedback": "Correct (see PAMCA W7-M1)."
+      },
+      {
+        "answer": "SNPs cannot occur inside CNVs",
+        "correct": false,
+        "feedback": "They can, and do."
+      },
+      {
+        "answer": "Primers cannot bind to duplicated DNA",
+        "correct": false,
+        "feedback": "They can; the problem is interpreting the genotypes."
+      },
+      {
+        "answer": "Amplified regions are always masked in Ag3",
+        "correct": false,
+        "feedback": "They are not masked."
+      }
+    ]
+  },
+  {
+    "question": "The best Cyp6 tag SNPs have the same frequency as CYP6P4 I236M in Kanungu (~80%), where only ~25% of mosquitoes carry Cyp6aap_Dup1a. What does this tell you?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "The tags mark the I236M haplotype background, not the duplication specifically",
+        "correct": true,
+        "feedback": "Correct. They would overestimate the duplication outside the Busia area."
+      },
+      {
+        "answer": "The duplication calls in Kanungu are wrong",
+        "correct": false,
+        "feedback": "There is no reason to think so; I236M also occurs without the duplication."
+      },
+      {
+        "answer": "The tags are perfect markers of the duplication everywhere",
+        "correct": false,
+        "feedback": "They are good markers only where nearly all I236M haplotypes carry the duplication."
+      },
+      {
+        "answer": "I236M is not on the swept haplotype",
+        "correct": false,
+        "feedback": "Every mosquito with two swept haplotypes is homozygous for 236M."
+      }
+    ]
+  }
+]

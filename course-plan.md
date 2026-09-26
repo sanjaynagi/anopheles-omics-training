@@ -26,10 +26,12 @@ All the data is public, and each dataset leads into the next:
 | 6. Scale up | How do we multiplex the markers into a panel? | **multiply** (+ Ag-vampIR, AnoSpp as case studies) | AgamP4 reference |
 | 7. Monitor | Do the markers predict survival in the field? | **AmpSeeker** | Ag-vampIR, SRA **PRJNA1207724**: **Siaya deltamethrin dead/alive, 264 samples, ~0.7 GB** (+ VK7 alive/dead, Ghana, Gambia) |
 
-The loop closes because **Ag-vampIR has tagging SNPs at all four Busia sweep
-loci** (`Cyp6_tag1-4`, `Cyp6p3_I88T`, `Cyp6p4_I236M`, `34mb_tag1-4`, `Gste_*`,
-`Cyp9k1_tag*`). On Day 4, participants can test whether a locus they found by RNA-seq
-and selection scans is associated with net survival in a nearby population.
+The loop closes at the Cyp6 locus. In Ag3 around Busia, the swept 2R haplotype carries
+Cyp6p4-I236M and the Cyp6aa1 duplication (`Cyp6aap_Dup1a`), and Ag-vampIR's `Cyp6p4_I236M` and
+`Cyp6_tag8` track it. In Siaya those markers predict deltamethrin survival (OR ≈ 3.4), as do the
+`34mb_tag1-4` markers at the 2L sweep. The panel does **not** tag the Busia Cyp9k1 sweep (`Cyp9k1_Dup8`),
+and its Gste tags and remaining Cyp6 tags don't vary around Busia/Siaya; they mostly come from West
+African sweeps. The course says this openly and uses it to motivate designing new tags (4.2).
 
 **Worked example: CYP6AA1.** Every module demonstrates its method on CYP6AA1 (AGAP002862)
 first. It is upregulated and duplicated on the Uganda/Kenya "triple mutant" haplotype

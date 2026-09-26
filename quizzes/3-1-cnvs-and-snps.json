@@ -1,0 +1,132 @@
+[
+  {
+    "question": "Which observation is the most direct evidence that overexpression is caused by a cis-regulatory change?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "In heterozygotes, one allele of the gene is expressed more than the other (allele-specific expression)",
+        "correct": true,
+        "feedback": "Correct. A cis change affects only the copy it sits on, so the two alleles are expressed unequally."
+      },
+      {
+        "answer": "Many genes on different chromosomes are overexpressed together",
+        "correct": false,
+        "feedback": "That pattern points to a trans-acting regulator."
+      },
+      {
+        "answer": "Sequencing coverage over the gene is 1.5 times the genome average",
+        "correct": false,
+        "feedback": "Raised coverage indicates a copy number variant."
+      },
+      {
+        "answer": "The gene carries a common amino acid substitution",
+        "correct": false,
+        "feedback": "A coding change alters the protein, not how much of it is made."
+      }
+    ]
+  },
+  {
+    "question": "In Busia, nearly every mosquito carries Cyp6aap_Dup1a. What can this fixed duplication NOT explain?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Differences in CYP6AA1 expression between individual Busia mosquitoes",
+        "correct": true,
+        "feedback": "Correct. A variant that everyone carries cannot explain variation within the population."
+      },
+      {
+        "answer": "Why CYP6AA1 might be expressed more in Busia than in a population without the duplication",
+        "correct": false,
+        "feedback": "It could explain that: the populations differ in copy number."
+      },
+      {
+        "answer": "Why there is a selection signal at the Cyp6 cluster",
+        "correct": false,
+        "feedback": "A recently selected duplication is a good explanation for the signal."
+      },
+      {
+        "answer": "Why CYP6AA2 is also amplified in some mosquitoes",
+        "correct": false,
+        "feedback": "Other duplication alleles and co-amplified neighbours are possible."
+      }
+    ]
+  },
+  {
+    "question": "gene_cnv_frequencies() reports 0.35 for 'CYP9K1 amp' in a cohort. What does this mean?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "35% of mosquitoes in the cohort have more copies of CYP9K1 than expected",
+        "correct": true,
+        "feedback": "Correct. CNV frequencies are the fraction of individuals carrying an amplification."
+      },
+      {
+        "answer": "35% of chromosomes carry the amplification",
+        "correct": false,
+        "feedback": "The function counts individuals (carriers), not chromosomes."
+      },
+      {
+        "answer": "CYP9K1 has 0.35 extra copies on average",
+        "correct": false,
+        "feedback": "It is a frequency, not a mean copy number."
+      },
+      {
+        "answer": "CYP9K1 is expressed 35% more than in Kisumu",
+        "correct": false,
+        "feedback": "This is genomic data, not expression."
+      }
+    ]
+  },
+  {
+    "question": "What are the named CNV alleles such as Cyp6aap_Dup1a based on?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Discordant and split reads that identify the breakpoints of a specific duplication",
+        "correct": true,
+        "feedback": "Correct. The breakpoints identify the allele; coverage alone only tells you a gene is amplified."
+      },
+      {
+        "answer": "The coverage HMM alone",
+        "correct": false,
+        "feedback": "The HMM calls copy number but cannot distinguish different duplications."
+      },
+      {
+        "answer": "RNA-seq read counts",
+        "correct": false,
+        "feedback": "They are called from whole-genome sequencing."
+      },
+      {
+        "answer": "Haplotype clustering",
+        "correct": false,
+        "feedback": "Haplotypes are built from SNPs; CNVs are not in the phased data."
+      }
+    ]
+  },
+  {
+    "question": "CYP6AA1 is not significantly up in AnoExpress's BusiaSurvivors_v_Kisumu contrast. Which conclusion is best supported?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "The fold change depends on the comparator; other evidence (the duplication, selection, other contrasts) must be weighed too",
+        "correct": true,
+        "feedback": "Correct. One contrast against one susceptible strain is not the whole story."
+      },
+      {
+        "answer": "CYP6AA1 cannot be involved in resistance in Busia",
+        "correct": false,
+        "feedback": "Too strong: the duplication is near fixation and sits in the strongest Busia sweep."
+      },
+      {
+        "answer": "The Cyp6aap_Dup1a calls must be wrong",
+        "correct": false,
+        "feedback": "Coverage and breakpoint calls agree; there is no reason to doubt them."
+      },
+      {
+        "answer": "AnoExpress uses the wrong genome",
+        "correct": false,
+        "feedback": "AnoExpress uses the same AgamP4 gene IDs."
+      }
+    ]
+  }
+]

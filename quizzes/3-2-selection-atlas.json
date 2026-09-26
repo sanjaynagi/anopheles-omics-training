@@ -1,0 +1,132 @@
+[
+  {
+    "question": "Which statistic is most sensitive to an incomplete sweep, where the favoured allele is still at intermediate frequency?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "iHS",
+        "correct": true,
+        "feedback": "Correct. iHS compares haplotype homozygosity around the two alleles of each SNP."
+      },
+      {
+        "answer": "H12",
+        "correct": false,
+        "feedback": "H12 is most powerful when the swept haplotype(s) are common."
+      },
+      {
+        "answer": "G123",
+        "correct": false,
+        "feedback": "G123 is the unphased analogue of H12 and behaves similarly."
+      },
+      {
+        "answer": "Fst",
+        "correct": false,
+        "feedback": "Fst measures differentiation between populations, not a within-population sweep."
+      }
+    ]
+  },
+  {
+    "question": "The atlas reports a signal only when ...",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "a skewed exponential peak fits the H12 values much better than a flat line (ΔAIC > 1000) and H12 exceeds 0.1",
+        "correct": true,
+        "feedback": "Correct."
+      },
+      {
+        "answer": "any H12 window exceeds 0.5",
+        "correct": false,
+        "feedback": "The atlas fits a peak model rather than using a single threshold on H12."
+      },
+      {
+        "answer": "iHS and H12 agree",
+        "correct": false,
+        "feedback": "Signals are called from H12 only."
+      },
+      {
+        "answer": "the signal contains a known resistance gene",
+        "correct": false,
+        "feedback": "Signals are called without reference to genes; alerts are added later."
+      }
+    ]
+  },
+  {
+    "question": "A gene lies inside a signal's span2 but not its span1 or focus. How should you interpret this?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Weak evidence: the gene is in the broad footprint and may just be hitchhiking",
+        "correct": true,
+        "feedback": "Correct. The focus is the most likely location of the selected variant."
+      },
+      {
+        "answer": "Strong evidence that this gene is the target of selection",
+        "correct": false,
+        "feedback": "The focus interval gives stronger evidence."
+      },
+      {
+        "answer": "The gene is under balancing selection",
+        "correct": false,
+        "feedback": "The intervals say nothing about balancing selection."
+      },
+      {
+        "answer": "The gene has a CNV",
+        "correct": false,
+        "feedback": "The atlas does not use CNV data."
+      }
+    ]
+  },
+  {
+    "question": "A Busia signal is at 2RL:95,646,328. Where is it on the chromosome arms? (2R is 61,545,105 bp long.)",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "2L:34,101,223",
+        "correct": true,
+        "feedback": "Correct: 95,646,328 − 61,545,105."
+      },
+      {
+        "answer": "2R:95,646,328",
+        "correct": false,
+        "feedback": "2R is only 61.5 Mb long; positions beyond that are on 2L."
+      },
+      {
+        "answer": "2L:95,646,328",
+        "correct": false,
+        "feedback": "You need to subtract the length of 2R."
+      },
+      {
+        "answer": "3L:34,101,223",
+        "correct": false,
+        "feedback": "2RL is made of 2R and 2L, not 3L."
+      }
+    ]
+  },
+  {
+    "question": "Why can signal strength (stat_max) at a locus fall over time even if selection continues?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "As a sweep nears fixation, recombination and new mutations erode the haplotype, or several haplotypes are selected (soft sweep)",
+        "correct": true,
+        "feedback": "Correct. H12 is not an allele frequency."
+      },
+      {
+        "answer": "Because stat_max is the allele frequency of the selected variant",
+        "correct": false,
+        "feedback": "stat_max is the maximum H12, not a frequency."
+      },
+      {
+        "answer": "Because older cohorts always have more mosquitoes",
+        "correct": false,
+        "feedback": "Sample size matters, but it is not the main reason."
+      },
+      {
+        "answer": "It cannot; H12 only increases over time",
+        "correct": false,
+        "feedback": "H12 can decrease as a sweep ages."
+      }
+    ]
+  }
+]
