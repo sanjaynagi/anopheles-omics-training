@@ -1,7 +1,8 @@
 name: Deploy book to GitHub Pages
 
 on:
-  # Switch on `push` to main once the repo is public and Pages is enabled.
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
