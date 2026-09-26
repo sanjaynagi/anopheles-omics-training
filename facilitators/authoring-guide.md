@@ -13,7 +13,7 @@ Every module notebook follows the same structure as the MalariaGEN–PAMCA cours
 5. **Candidate genes cell** (analysis modules only), always with a working default so the notebook runs on its own:
    ```python
    # Replace with the genes you were assigned on Day 2 (see data/candidate-genes.tsv)
-   CANDIDATE_GENES = ["AGAP002865", "AGAP000818"]  # CYP6P3, CYP9K1
+   CANDIDATE_GENES = ["AGAP009193", "AGAP002894"]  # GSTE4, CYP6Z4 (both in the pool and inside Busia sweeps)
    ```
 6. Sections of **theory then practical** (`##` headings). Keep theory short and concrete; use
    figures from the tools' own repos (raw GitHub URLs) rather than copying images into this repo.

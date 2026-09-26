@@ -1,0 +1,132 @@
+[
+  {
+    "question": "Which resistance mechanism is most often caused by a single amino acid substitution?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Target-site resistance",
+        "correct": true,
+        "feedback": "Correct. For example kdr (Vgsc L995F/S) and Ace1 G280S."
+      },
+      {
+        "answer": "Metabolic resistance",
+        "correct": false,
+        "feedback": "Metabolic resistance usually works through higher expression, e.g. CNVs or regulatory changes."
+      },
+      {
+        "answer": "Cuticular resistance",
+        "correct": false,
+        "feedback": "Cuticular resistance mostly involves higher expression of genes such as CYP4G16/17."
+      },
+      {
+        "answer": "Sequestration",
+        "correct": false,
+        "feedback": "Sequestration by SAP2 is associated with higher expression in the legs."
+      }
+    ]
+  },
+  {
+    "question": "SAP2 is an example of which resistance mechanism?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Sequestration: the protein binds pyrethroids",
+        "correct": true,
+        "feedback": "Correct. SAP2 is highly expressed in the legs and binds pyrethroids."
+      },
+      {
+        "answer": "Target-site resistance in the sodium channel",
+        "correct": false,
+        "feedback": "That is kdr in Vgsc."
+      },
+      {
+        "answer": "Metabolic breakdown by a P450",
+        "correct": false,
+        "feedback": "SAP2 is a binding protein, not an enzyme."
+      },
+      {
+        "answer": "Thickening of the cuticle",
+        "correct": false,
+        "feedback": "That is cuticular resistance (e.g. CYP4G16/17)."
+      }
+    ]
+  },
+  {
+    "question": "A genome-wide selection scan finds a strong signal. What can it NOT tell you on its own?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Which gene in the region is the target, and which insecticide selected it",
+        "correct": true,
+        "feedback": "Correct. A signal points to a region, not a gene or a selective agent."
+      },
+      {
+        "answer": "That the region has reduced diversity and long shared haplotypes",
+        "correct": false,
+        "feedback": "That is exactly what the scan detects."
+      },
+      {
+        "answer": "Where in the genome the signal is",
+        "correct": false,
+        "feedback": "Scans do tell you the location."
+      },
+      {
+        "answer": "That selection was recent",
+        "correct": false,
+        "feedback": "H12-type statistics detect recent selection."
+      }
+    ]
+  },
+  {
+    "question": "Which approach links genotype directly to whether individual mosquitoes survive insecticide exposure?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Genome-wide or targeted association study (GWAS) of dead vs alive mosquitoes",
+        "correct": true,
+        "feedback": "Correct. Association studies compare genotypes between phenotyped individuals."
+      },
+      {
+        "answer": "A selection scan",
+        "correct": false,
+        "feedback": "Selection scans need no phenotype data."
+      },
+      {
+        "answer": "CNV discovery from coverage",
+        "correct": false,
+        "feedback": "CNV discovery finds duplications but does not use phenotypes."
+      },
+      {
+        "answer": "A reference genome annotation",
+        "correct": false,
+        "feedback": "Annotation does not involve phenotypes."
+      }
+    ]
+  },
+  {
+    "question": "Why is amplicon sequencing well suited to routine monitoring but not to discovery?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "It is cheap for thousands of samples, but only sees the markers on the panel",
+        "correct": true,
+        "feedback": "Correct."
+      },
+      {
+        "answer": "It sequences the whole genome at high coverage",
+        "correct": false,
+        "feedback": "It sequences only short targets."
+      },
+      {
+        "answer": "It cannot detect SNPs",
+        "correct": false,
+        "feedback": "Detecting SNPs at known positions is its main use."
+      },
+      {
+        "answer": "It only works on RNA",
+        "correct": false,
+        "feedback": "Panels such as Ag-vampIR use genomic DNA."
+      }
+    ]
+  }
+]

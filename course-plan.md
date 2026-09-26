@@ -18,7 +18,7 @@ All the data is public, and each dataset leads into the next:
 
 | Step | Question | Tool | Public data |
 |---|---|---|---|
-| 1. Discover | Which genes are differentially expressed in resistant mosquitoes? | **RNA-Seq-Pop** | Busia deltamethrin-selected colony vs parental vs Kisumu. ENA **PRJNA748581** (14 samples, NovaSeq, ~113 GB) |
+| 1. Discover | Which genes are differentially expressed in resistant mosquitoes? | **RNA-Seq-Pop** | Busia deltamethrin-selected colony vs parental vs Kisumu. ENA **PRJNA748581** (16 runs: Kisumu ×4, BusSus ×6, BusRes ×6; NovaSeq) |
 | 2. Replicate | Is the gene overexpressed in other studies, countries and species? | **AnoExpress** | Bundled meta-analysis (Ag + Af) |
 | 3. Explain | Is overexpression linked to CNVs or nearby SNPs in wild populations? | **malariagen_data** | Ag3: Ugandan and Kenyan cohorts, incl. Busia 2016 |
 | 4. Selection | Is the locus under recent selection in the field? | **selection-atlas** | `UG-E_Busia_gamb_2016_Q2` has 4 signals: **2R Cyp6aa/p cluster** (28.48 Mb), **2L ~34 Mb**, **3R Gste cluster** (28.59 Mb), **X Cyp9k1** (15.29 Mb) |
@@ -120,7 +120,7 @@ Keep the **1-hour daily flexi block** from the draft (e.g. the last hour of each
 
 | Asset | How it is made | Hosted |
 |---|---|---|
-| **Busia mini dataset** | Download PRJNA748581 via ENA FTP (or `ffq`, as RNA-Seq-Pop does); subsample to ~0.5–1 M read pairs per sample with `seqtk`; keep all 14 samples (Kisumu ×3, BusSus ×6, BusRes ×5; check group sizes and labels against the paper). Aim for < 2 GB in total | Zenodo (DOI) |
+| **Busia mini dataset** | Download PRJNA748581 via ENA FTP (or `ffq`, as RNA-Seq-Pop does); subsample to ~0.5–1 M read pairs per sample with `seqtk`; keep all 16 runs (Kisumu ×4, BusSus ×6, BusRes ×6). Aim for < 2 GB in total | Zenodo (DOI) |
 | **Busia full results** | Run RNA-Seq-Pop once on the full dataset on HPC; package the counts, DE, GSEA, Fst/PBS, VOI frequencies, karyotype, AIMs and the results book | Zenodo + GitHub Pages |
 | **Siaya/VK7 amplicon subset** | SRA PRJNA1207724 FASTQs (Siaya ~0.7 GB; VK7 ~0.1 GB); AmpSeeker config with `from-bcl: False`, metadata with phenotype | Zenodo (or fetched in the notebook) |
 | **AmpSeeker full results** | Run once; host the results book (or link the existing `agvampir002-results`) | GitHub Pages |

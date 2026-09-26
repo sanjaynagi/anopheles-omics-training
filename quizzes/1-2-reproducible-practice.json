@@ -1,0 +1,132 @@
+[
+  {
+    "question": "Where should files you downloaded from ENA go, and how should you treat them?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "In data/raw/, read-only, with their source and checksum recorded",
+        "correct": true,
+        "feedback": "Correct. Raw data are never edited."
+      },
+      {
+        "answer": "In results/, so they sit next to the outputs",
+        "correct": false,
+        "feedback": "results/ is for files your code generates and that can be deleted."
+      },
+      {
+        "answer": "Anywhere, as long as they are committed to git",
+        "correct": false,
+        "feedback": "Large raw data should not be committed to git."
+      },
+      {
+        "answer": "In notebooks/, next to the code that reads them",
+        "correct": false,
+        "feedback": "Keep data and code separate."
+      }
+    ]
+  },
+  {
+    "question": "Which statement about results/ is the best rule of thumb?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "You should be able to delete it and regenerate everything in it from raw data and code",
+        "correct": true,
+        "feedback": "Correct."
+      },
+      {
+        "answer": "It should never be deleted because it cannot be recreated",
+        "correct": false,
+        "feedback": "If it cannot be recreated, part of your analysis is not captured in code."
+      },
+      {
+        "answer": "It should be edited by hand to fix small mistakes",
+        "correct": false,
+        "feedback": "Fix the code, then regenerate the results."
+      },
+      {
+        "answer": "It is the same as data/raw/",
+        "correct": false,
+        "feedback": "Raw data are inputs; results are outputs."
+      }
+    ]
+  },
+  {
+    "question": "What does a lock file (e.g. pixi.lock) add compared with an environment file that pins your main packages?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "It fixes the exact version of every package, including dependencies",
+        "correct": true,
+        "feedback": "Correct."
+      },
+      {
+        "answer": "It makes the environment install faster",
+        "correct": false,
+        "feedback": "Speed is not the point; exactness is."
+      },
+      {
+        "answer": "It stops anyone else from using the environment",
+        "correct": false,
+        "feedback": "Lock files are meant to be shared and committed."
+      },
+      {
+        "answer": "It updates packages automatically to the newest versions",
+        "correct": false,
+        "feedback": "It does the opposite."
+      }
+    ]
+  },
+  {
+    "question": "You have committed your dossier changes in your codespace, but they do not appear on GitHub. What did you forget?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "git push",
+        "correct": true,
+        "feedback": "Correct. Commits are local until you push them to the remote."
+      },
+      {
+        "answer": "git init",
+        "correct": false,
+        "feedback": "The repository already exists."
+      },
+      {
+        "answer": "git clone",
+        "correct": false,
+        "feedback": "You already have a copy of the repo."
+      },
+      {
+        "answer": "Forking the repository again",
+        "correct": false,
+        "feedback": "You only need to fork once."
+      }
+    ]
+  },
+  {
+    "question": "Which of these should NOT be committed to a GitHub repository?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "A personal access token or password",
+        "correct": true,
+        "feedback": "Correct. Assume anything pushed to GitHub can become public."
+      },
+      {
+        "answer": "A README.md describing the project",
+        "correct": false,
+        "feedback": "READMEs should always be committed."
+      },
+      {
+        "answer": "An environment.yml file",
+        "correct": false,
+        "feedback": "Environment files should be committed."
+      },
+      {
+        "answer": "A small script that makes your dossier figures",
+        "correct": false,
+        "feedback": "Code belongs in version control."
+      }
+    ]
+  }
+]

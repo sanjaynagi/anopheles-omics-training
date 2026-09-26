@@ -1,0 +1,132 @@
+[
+  {
+    "question": "Where should the raw FASTQ files from a new RNA-seq study be deposited?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "An INSDC archive: ENA, SRA or DDBJ",
+        "correct": true,
+        "feedback": "Correct. These are permanent, free and mirror each other."
+      },
+      {
+        "answer": "Only in a GitHub repository",
+        "correct": false,
+        "feedback": "GitHub is not an archive and rejects large files."
+      },
+      {
+        "answer": "On a lab server, available on request",
+        "correct": false,
+        "feedback": "Most journals require public deposition, and 'on request' often fails."
+      },
+      {
+        "answer": "Only in the supplementary material of the paper",
+        "correct": false,
+        "feedback": "Supplements cannot hold sequencing data of this size."
+      }
+    ]
+  },
+  {
+    "question": "You want a citable, versioned copy of your processed results and code. Which service fits best?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Zenodo, which gives each version a DOI",
+        "correct": true,
+        "feedback": "Correct. Zenodo can also archive GitHub releases automatically."
+      },
+      {
+        "answer": "A personal Google Drive link",
+        "correct": false,
+        "feedback": "Links break and are not citable."
+      },
+      {
+        "answer": "SRA",
+        "correct": false,
+        "feedback": "SRA is for raw sequence reads."
+      },
+      {
+        "answer": "A git branch",
+        "correct": false,
+        "feedback": "Branches can be deleted and have no DOI."
+      }
+    ]
+  },
+  {
+    "question": "A public GitHub repository has no LICENSE file. What can others legally do with the code?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Very little: by default all rights are reserved",
+        "correct": true,
+        "feedback": "Correct. Add a licence to every repository."
+      },
+      {
+        "answer": "Anything, because it is public",
+        "correct": false,
+        "feedback": "Public is not the same as openly licensed."
+      },
+      {
+        "answer": "Anything except commercial use",
+        "correct": false,
+        "feedback": "That would need a specific licence."
+      },
+      {
+        "answer": "Use it only if they cite you",
+        "correct": false,
+        "feedback": "That is what an attribution licence says, but there is no licence here."
+      }
+    ]
+  },
+  {
+    "question": "Which of these is the most useful provenance record for a Snakemake analysis?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "The committed config files, the workflow version, the environment files and the run log",
+        "correct": true,
+        "feedback": "Correct. Together these say which data, code, software and settings produced the results."
+      },
+      {
+        "answer": "The final figure",
+        "correct": false,
+        "feedback": "A figure says nothing about how it was made."
+      },
+      {
+        "answer": "A screenshot of the terminal",
+        "correct": false,
+        "feedback": "Screenshots are incomplete and hard to reuse."
+      },
+      {
+        "answer": "The number of cores used",
+        "correct": false,
+        "feedback": "That does not affect the results."
+      }
+    ]
+  },
+  {
+    "question": "In the Busia ENA metadata, where is the Kisumu / unselected / selected grouping recorded?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Only in the free-text sample alias (Kis, BusSus, BusRes)",
+        "correct": true,
+        "feedback": "Correct. A structured treatment or phenotype field would make the data easier to reuse."
+      },
+      {
+        "answer": "In a dedicated 'phenotype' field",
+        "correct": false,
+        "feedback": "There is no such field for these samples."
+      },
+      {
+        "answer": "In the sample title",
+        "correct": false,
+        "feedback": "The title is the same for every sample."
+      },
+      {
+        "answer": "In the instrument model",
+        "correct": false,
+        "feedback": "That records the sequencer."
+      }
+    ]
+  }
+]

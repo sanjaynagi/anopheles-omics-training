@@ -6,3 +6,6 @@ _build/
 workflows/**/results/
 workflows/**/resources/reads/
 workflows/**/.snakemake/
+
+# notebook practice output
+course-work/

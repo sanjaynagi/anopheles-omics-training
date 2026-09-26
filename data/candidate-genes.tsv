@@ -1,0 +1,26 @@
+gene_id	gene_name	description	contig	start	end	busia_log2fc	busia_padj	category	n_experiments_overexpressed	in_busia_sweep	on_agvampir
+AGAP005372	COEBE3C	carboxylesterase beta esterase	2L	14714193	14716037	2.56	0.0	known_ir	5	False	False
+AGAP000877	CYP4G17	cytochrome P450	X	16618800	16621269	2.0	0.0	known_ir	11	False	False
+AGAP008217	CYP6Z3	cytochrome P450	3R	6971582	6973413	1.26	0.0	known_ir	14	False	False
+AGAP009197	GSTE3	glutathione S-transferase epsilon class 3	3R	28601368	28602280	1.17	0.0	known_ir	1	True	True
+AGAP009946	GSTMS3	glutathione transferase microsomal 3	3R	45853445	45854470	0.93	0.0	known_ir	12	False	False
+AGAP005756	COEAE1D	carboxylesterase	2L	20287341	20289292	0.76	0.004	known_ir	8	False	True
+AGAP009193	GSTE4	glutathione S-transferase epsilon class 4	3R	28595948	28596868	0.68	0.008	known_ir	5	True	True
+AGAP006227	COEAE1F	alpha esterase	2L	28545396	28547938	0.6	0.001	known_ir	8	False	False
+AGAP008219	CYP6Z1	cytochrome P450	3R	6976501	6978142	0.51	0.01	known_ir	11	False	False
+AGAP011909		unannotated	3L	34835475	34839141	5.07	0.0	novel	12	False	False
+AGAP008331		WD repeat-containing protein 59	3R	9192215	9196894	4.43	0.0	novel	11	False	False
+AGAP002852		unannotated	2R	28307397	28309299	3.77	0.0	novel	9	True	False
+AGAP002894	CYP6Z4	cytochrome P450	2R	28981542	28983105	3.63	0.0	novel	9	True	False
+AGAP002850		Niemann-Pick Type C-2	2R	28304726	28305246	3.63	0.0	novel	3	True	False
+AGAP005373	COEBE1C	carboxylesterase beta esterase	2L	14716580	14718519	3.63	0.0	novel	4	False	False
+AGAP028019	CYP4H18	cytochrome P450	3R	9911600	9913693	3.22	0.0	novel	16	False	False
+AGAP009246	CYP4C27	cytochrome P450	3R	29380577	29386394	3.01	0.0	novel	15	False	False
+AGAP009184		unannotated	3R	28493613	28495038	2.88	0.0	novel	4	True	False
+AGAP006521		adenylate cyclase-stimulating G alpha protein	2L	33825711	33832358	1.98	0.0	novel	2	True	False
+AGAP000834		unannotated	X	15414172	15423553	1.38	0.0	novel	5	True	False
+AGAP003221	ABCC3	ATP-binding cassette transporter (ABC transporter) family C member 3	2R	34017957	34028112	1.22	0.0	novel	13	False	False
+AGAP011564		glucosyl/glucuronosyl transferases	3L	27795302	27797434	1.16	0.001	novel	13	False	False
+AGAP005499		dehydrogenase/reductase SDR family member 11 precursor	2L	16238832	16239791	1.14	0.0	novel	16	False	False
+AGAP000833	MIP	myoinhibitory-like peptide	X	15383617	15388601	0.97	0.0	novel	10	True	False
+AGAP006548		glycine cleavage system H protein	2L	34111266	34113290	0.57	0.047	novel	6	True	True

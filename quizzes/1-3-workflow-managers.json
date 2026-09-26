@@ -1,0 +1,132 @@
+[
+  {
+    "question": "What does `snakemake -n` do?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "A dry run: shows which jobs would run and why, without running them",
+        "correct": true,
+        "feedback": "Correct. Always dry-run first."
+      },
+      {
+        "answer": "Runs the workflow on n cores",
+        "correct": false,
+        "feedback": "That is --cores."
+      },
+      {
+        "answer": "Deletes all outputs and reruns everything",
+        "correct": false,
+        "feedback": "That would be something like --forceall."
+      },
+      {
+        "answer": "Draws the DAG",
+        "correct": false,
+        "feedback": "That is --dag."
+      }
+    ]
+  },
+  {
+    "question": "A rule has input `data/{sample}.fastq` and output `results/counts/{sample}.txt`. You ask for `results/counts/BusRes_2.txt`. What does Snakemake do?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Sets sample=BusRes_2 and looks for data/BusRes_2.fastq",
+        "correct": true,
+        "feedback": "Correct. Wildcards are filled by matching the requested output."
+      },
+      {
+        "answer": "Runs the rule for every sample in the config",
+        "correct": false,
+        "feedback": "Only the requested file is built."
+      },
+      {
+        "answer": "Fails, because wildcards must be listed in the rule",
+        "correct": false,
+        "feedback": "Wildcards are inferred from the output pattern."
+      },
+      {
+        "answer": "Creates data/BusRes_2.fastq",
+        "correct": false,
+        "feedback": "Inputs must exist or be made by another rule."
+      }
+    ]
+  },
+  {
+    "question": "After a successful run, the FASTQ file for one sample is replaced with new data. What happens on the next run?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Only the jobs that depend on that file are rerun",
+        "correct": true,
+        "feedback": "Correct. This is resumability."
+      },
+      {
+        "answer": "The whole workflow reruns",
+        "correct": false,
+        "feedback": "Only out-of-date outputs are rebuilt."
+      },
+      {
+        "answer": "Nothing reruns, because the outputs already exist",
+        "correct": false,
+        "feedback": "Snakemake notices the input has changed since the outputs were made."
+      },
+      {
+        "answer": "Snakemake refuses to run until results/ is deleted",
+        "correct": false,
+        "feedback": "No need to delete anything."
+      }
+    ]
+  },
+  {
+    "question": "Why put sample names in config/config.yaml rather than in the Snakefile?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "So the same workflow can be reused on new data by editing only the config",
+        "correct": true,
+        "feedback": "Correct."
+      },
+      {
+        "answer": "Because Snakefiles cannot contain Python lists",
+        "correct": false,
+        "feedback": "They can; it is just bad practice for data-specific settings."
+      },
+      {
+        "answer": "Because Snakemake runs faster with YAML",
+        "correct": false,
+        "feedback": "Speed is not the reason."
+      },
+      {
+        "answer": "Because conda needs the sample names",
+        "correct": false,
+        "feedback": "conda manages software, not samples."
+      }
+    ]
+  },
+  {
+    "question": "In Nextflow, what moves data between processes?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Channels",
+        "correct": true,
+        "feedback": "Correct."
+      },
+      {
+        "answer": "Wildcards",
+        "correct": false,
+        "feedback": "Wildcards are a Snakemake concept."
+      },
+      {
+        "answer": "The DAG file",
+        "correct": false,
+        "feedback": "The graph is derived from the channels, not the other way round."
+      },
+      {
+        "answer": "Config files",
+        "correct": false,
+        "feedback": "Config files hold parameters."
+      }
+    ]
+  }
+]

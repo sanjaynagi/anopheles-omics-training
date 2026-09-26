@@ -1,0 +1,117 @@
+[
+  {
+    "question": "Why is replication across independent RNA-seq studies useful when choosing candidate resistance genes?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "A gene overexpressed in many resistant populations, each compared with a different susceptible strain, is less likely to be explained by the history of one colony.",
+        "correct": true,
+        "feedback": "Correct. Colony, batch and reference-strain effects differ between studies, so a gene that replicates is a stronger candidate."
+      },
+      {
+        "answer": "It increases the number of replicates, so the p-value in the Busia contrast becomes smaller.",
+        "correct": false,
+        "feedback": "No. AnoExpress analyses each comparison separately; other studies do not change the Busia p-value."
+      },
+      {
+        "answer": "It proves that the gene causes resistance.",
+        "correct": false,
+        "feedback": "No. Replication makes a gene more plausible, but functional work or genetic association is needed to show causation."
+      },
+      {
+        "answer": "It removes the need to look at read counts.",
+        "correct": false,
+        "feedback": "No. You still need counts to check that a large fold change is not just a change from almost zero reads."
+      }
+    ]
+  },
+  {
+    "question": "CYP6P3 has a log2 fold change of about -3.4 in BusiaSurvivors_v_Kisumu, but is overexpressed in most West African comparisons. Which explanation is NOT supported by this module?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "The Kisumu samples in the Busia experiment express CYP6P3 highly, so the fold change depends on the reference.",
+        "correct": false,
+        "feedback": "This is supported: both groups express CYP6P3, but the Kisumu batch expresses it more."
+      },
+      {
+        "answer": "Selection at the Cyp6 cluster in Busia could act through amino acid changes rather than expression.",
+        "correct": false,
+        "feedback": "This is a reasonable explanation. Cyp6p4 I236M, for example, tags a sweep in East Africa."
+      },
+      {
+        "answer": "CYP6P3 is not expressed at all in Busia mosquitoes.",
+        "correct": true,
+        "feedback": "Correct, this is not supported. Busia samples have plenty of CYP6P3 reads (log2 counts around 6 to 7); they are just lower than Kisumu."
+      },
+      {
+        "answer": "Colony history (about 24 generations in the insectary) may have changed resistance allele frequencies.",
+        "correct": false,
+        "feedback": "This is a reasonable explanation that you could test with the Ag3 wild Busia samples on Day 3."
+      }
+    ]
+  },
+  {
+    "question": "In a genome-wide expression scan, several neighbouring genes around your candidate are all overexpressed. What is the most useful next step?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Check whether a copy number variant covering those genes is common in Ugandan and Kenyan Ag3 cohorts.",
+        "correct": true,
+        "feedback": "Correct. A duplication covering several genes is a common cause of co-overexpression; this is what you do on Day 3."
+      },
+      {
+        "answer": "Drop the candidate, because its neighbours are also overexpressed.",
+        "correct": false,
+        "feedback": "No. Co-overexpression tells you about the mechanism; it does not rule the gene out."
+      },
+      {
+        "answer": "Increase the window size of the moving median until the peak disappears.",
+        "correct": false,
+        "feedback": "No. The window size changes how smooth the line is, not the underlying biology."
+      }
+    ]
+  },
+  {
+    "question": "Why does the gamb_colu_arab_fun analysis contain fewer genes than gamb_colu?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Only genes with orthologs in all included species are kept.",
+        "correct": true,
+        "feedback": "Correct. Adding An. funestus removes genes without a clear ortholog across all four species."
+      },
+      {
+        "answer": "An. funestus has a smaller genome.",
+        "correct": false,
+        "feedback": "No. The reduction comes from ortholog matching, not genome size."
+      },
+      {
+        "answer": "Genes that are not significant in every species are removed.",
+        "correct": false,
+        "feedback": "No. Genes are not filtered on significance."
+      }
+    ]
+  },
+  {
+    "question": "Your candidate is a P450, and the P450 Pfam domain is enriched among genes overexpressed in many studies. What does this tell you?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Genes like yours are often overexpressed in resistant mosquitoes, which makes a role plausible, but it is not direct evidence for your gene in Busia.",
+        "correct": true,
+        "feedback": "Correct. Enrichment adds prior plausibility. Selection and association with survival are stronger evidence."
+      },
+      {
+        "answer": "Your gene metabolises deltamethrin.",
+        "correct": false,
+        "feedback": "No. Only functional work (for example recombinant enzyme assays) can show that."
+      },
+      {
+        "answer": "Your gene is inside a selective sweep.",
+        "correct": false,
+        "feedback": "No. Enrichment says nothing about selection; you check that with the selection atlas on Day 3."
+      }
+    ]
+  }
+]
