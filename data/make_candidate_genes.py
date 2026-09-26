@@ -64,6 +64,11 @@ PANEL_WINDOW = 50_000
 # (or, for COEBE3C, highlighted by the Busia RNA-Seq-Pop paper itself).
 # novel = strongly DE and/or widely replicated and/or inside a Busia sweep, but little studied.
 CANDIDATES = {
+    # The course's worked example, used by every module. Not significant in the
+    # AnoExpress survivors-vs-Kisumu contrast, but upregulated and duplicated in the
+    # Uganda/Kenya "triple mutant" haplotype (Cyp6aa1 dup + Cyp6p4-I236M + ZZB TE;
+    # Njoroge et al. 2022, Mol Ecol, doi:10.1111/mec.16591), which Ag-vampIR tags.
+    "AGAP002862": "focal",  # CYP6AA1, Cyp6aa/p cluster (2R sweep)
     # known IR genes
     "AGAP009193": "known_ir",  # GSTE4, Gste cluster (3R sweep)
     "AGAP009197": "known_ir",  # GSTE3, Gste cluster (3R sweep)
@@ -164,7 +169,7 @@ def main():
     df["in_busia_sweep"] = df.apply(in_busia_sweep, axis=1, signals=signals)
     df["on_agvampir"] = df.apply(on_agvampir, axis=1, bed=bed)
 
-    bad = df.query("not (busia_padj < 0.05 and busia_log2fc > 0)")
+    bad = df.query("category != 'focal' and not (busia_padj < 0.05 and busia_log2fc > 0)")
     assert bad.empty, f"not significantly overexpressed in {CONTRAST}: {list(bad.index)}"
     assert df[["contig", "start", "end"]].notna().all().all(), "missing coordinates"
 

@@ -1,4 +1,5 @@
 gene_id	gene_name	description	contig	start	end	busia_log2fc	busia_padj	category	n_experiments_overexpressed	in_busia_sweep	on_agvampir
+AGAP002862	CYP6AA1	cytochrome P450	2R	28480576	28482637	-0.29	0.181	focal	10	True	True
 AGAP005372	COEBE3C	carboxylesterase beta esterase	2L	14714193	14716037	2.56	0.0	known_ir	5	False	False
 AGAP000877	CYP4G17	cytochrome P450	X	16618800	16621269	2.0	0.0	known_ir	11	False	False
 AGAP008217	CYP6Z3	cytochrome P450	3R	6971582	6973413	1.26	0.0	known_ir	14	False	False

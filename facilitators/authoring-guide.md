@@ -13,7 +13,7 @@ Every module notebook follows the same structure as the MalariaGEN–PAMCA cours
 5. **Candidate genes cell** (analysis modules only), always with a working default so the notebook runs on its own:
    ```python
    # Replace with the genes you were assigned on Day 2 (see data/candidate-genes.tsv)
-   CANDIDATE_GENES = ["AGAP009193", "AGAP002894"]  # GSTE4, CYP6Z4 (both in the pool and inside Busia sweeps)
+   CANDIDATE_GENES = ["AGAP002862", "AGAP009193"]  # CYP6AA1, GSTE4
    ```
 6. Sections of **theory then practical** (`##` headings). Keep theory short and concrete; use
    figures from the tools' own repos (raw GitHub URLs) rather than copying images into this repo.
@@ -33,6 +33,24 @@ Every module notebook follows the same structure as the MalariaGEN–PAMCA cours
    display_quiz("https://raw.githubusercontent.com/sanjaynagi/malaria-software-training/main/quizzes/<notebook-stem>.json")
    ```
 9. `## Summary`, then `## Well done!`, then `## References` (numbered, with DOIs).
+
+## The worked example: CYP6AA1
+
+CYP6AA1 (AGAP002862) is the gene every module uses as its worked example. It is upregulated in
+resistant *An. gambiae* and duplicated on the Uganda/Kenya "triple mutant" haplotype
+(Cyp6aa1 duplication + Cyp6p4-I236M + a ZZB transposable element insertion;
+Njoroge *et al.* 2022, *Mol Ecol*, doi:10.1111/mec.16591). That haplotype sits in the Busia 2R sweep,
+and its Ag-vampIR markers (`Cyp6p4_I236M`, `Cyp6_tag8`) predict deltamethrin survival in Siaya.
+Show each method on CYP6AA1 first, then have participants repeat it on their own genes.
+Caveat: in AnoExpress's `BusiaSurvivors_v_Kisumu` contrast CYP6AA1 is not significant (log2FC −0.29),
+so do not claim Busia-vs-Kisumu overexpression from that contrast.
+
+## Environments: pixi first
+
+Recommend [pixi](https://pixi.sh) wherever we can: for the course's own environment (`pixi.toml`), for
+participants' projects, and for the Codespace's Snakemake environment. Explain conda where it is still
+used: Snakemake's `--use-conda` builds per-rule conda environments, which is why the workflows still
+need conda.
 
 ## Rules
 

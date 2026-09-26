@@ -22,6 +22,15 @@ All of the data is public.
 
 Busia and Siaya lie about 50 km apart, on either side of the Uganda–Kenya border.
 
+## The worked example: CYP6AA1
+
+Every module first demonstrates its method on one gene, the cytochrome P450 **CYP6AA1**
+(AGAP002862). It is upregulated in many pyrethroid-resistant populations, and in Uganda and
+Kenya it is duplicated on a rapidly spreading "triple mutant" haplotype that also carries the
+Cyp6p4-I236M mutation and a transposable element insertion (Njoroge *et al.* 2022,
+*Mol Ecol*, [doi:10.1111/mec.16591](https://doi.org/10.1111/mec.16591)). You will follow it
+from expression, to copy number, to a selective sweep, to an assay, to the field.
+
 ## Your task
 
 On Day 2 you are given two or three **candidate genes** from the Busia RNA-seq results.

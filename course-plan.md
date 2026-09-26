@@ -31,6 +31,11 @@ loci** (`Cyp6_tag1-4`, `Cyp6p3_I88T`, `Cyp6p4_I236M`, `34mb_tag1-4`, `Gste_*`,
 `Cyp9k1_tag*`). On Day 4, participants can test whether a locus they found by RNA-seq
 and selection scans is associated with net survival in a nearby population.
 
+**Worked example: CYP6AA1.** Every module demonstrates its method on CYP6AA1 (AGAP002862)
+first. It is upregulated and duplicated on the Uganda/Kenya "triple mutant" haplotype
+(Cyp6aa1 dup + Cyp6p4-I236M + ZZB TE; Njoroge *et al.* 2022, *Mol Ecol*, doi:10.1111/mec.16591),
+which lies in the Busia 2R sweep; its Ag-vampIR markers predict deltamethrin survival in Siaya.
+
 **Candidate-gene thread.** At the end of Day 2, each participant gets 2–3 genes from
 the Busia differential expression results. Each set mixes a known IR gene
 (e.g. CYP6AA1/CYP6P3, CYP9K1, GSTE2, SAP2, a COE cluster gene) with a less-studied
@@ -213,7 +218,8 @@ dry run with 2–3 testers, then CI.
 4. **Hosting:** new repo `sanjaynagi/malaria-software-training`.
 5. **Nextflow:** lecture only.
 6. **AnoSpp:** lecture/case study only.
-7. Phase 0 spikes are expected to pass; go straight to building, and fix problems as they come up.
+7. **Environments: pixi first** (course env, participants' projects, the Codespace Snakemake env); conda only where Snakemake's per-rule `--use-conda` envs need it.
+8. Phase 0 spikes are expected to pass; go straight to building, and fix problems as they come up.
 
 ### Codespaces cost
 - Participants **fork the course repo and create codespaces on their own accounts**, so it
