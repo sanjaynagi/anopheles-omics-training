@@ -1,0 +1,108 @@
+# RNA-Seq-Pop configuration for the Busia (Uganda) RNA-seq study
+# ---------------------------------------------------------------
+# Written for RNA-Seq-Pop v2.3.0 (git tag v2.3.0). Other versions may need changes.
+# Study: Nagi et al. (2023) Mol Ecol Resour, doi:10.1111/1755-0998.13759
+# Reads: ENA PRJNA748581 (16 paired-end NovaSeq libraries, each a pool of 5 females)
+#
+# The same file is used for the course "mini" dataset (reads subsampled to
+# 1 M pairs per sample, run in GitHub Codespaces) and for the full run on HPC.
+# Copy it to <rna-seq-pop>/config/config.yaml and run snakemake from the
+# rna-seq-pop root directory. See README.md in this folder.
+
+metadata: config/samples.tsv              # sample sheet (copy samples.tsv from this folder)
+pipeline: cpu                             # cpu = HISAT2 + freebayes (parabricks needs NVIDIA GPUs)
+parabricks-docker-user: 1006:1006         # ignored when pipeline: cpu
+
+dataset: 'Ag_Busia'                       # used to name some output files, e.g. results/genediff/Ag_Busia_diffexp.xlsx
+
+# Build the local results book (results/rna-seq-pop-results/_build/html/index.html)
+results-jupyterbook:
+      activate: True
+
+# auto: True -> reads are resources/reads/{sampleID}_1.fastq.gz and _2.fastq.gz
+# (data/prepare_busia_mini.sh writes files with exactly these names)
+fastq:
+      auto: True
+      paired: True
+
+# Reference files. These are made from Ensembl Metazoa release 63 (AgamP4) by
+# `data/prepare_busia_mini.sh --reference` (VectorBase downloads, used in the paper,
+# are no longer openly available). Paths are relative to the rna-seq-pop root.
+reference:
+  genome:
+        "resources/reference/Anopheles_gambiae.AgamP4.dna.chromosomes.fa.gz"
+  transcriptome:
+        "resources/reference/Anopheles_gambiae.AgamP4.cdna.all.fa.gz"
+  gff:
+        "resources/reference/Anopheles_gambiae.AgamP4.63.chr.clean.gff3"
+  snpeff:
+      customdb: True                      # build a snpEff database from the genome + GFF above
+      dbname: Anopheles_gambiae           # only used if customdb: False (snpEff download)
+  genes2transcripts:
+        "resources/reference/Gene2TranscriptMap.AgamP4.63.tsv"
+
+# Chromosome arms to analyse (must match the FASTA and GFF). Mt and unplaced contigs are skipped.
+contigs: ['2L', '2R', '3L', '3R', 'X']
+
+# Pairwise contrasts, written control_case. Treatment names must not contain underscores.
+# log2FoldChange > 0 means higher expression in the second (case) group.
+contrasts:
+      - 'Kisumu_BusiaParental'            # lab-susceptible reference vs unselected Busia (G24)
+      - 'BusiaParental_BusiaSelected'     # unselected G24 vs deltamethrin-selected G28 survivors
+
+QualityControl:
+      fastp-trim:
+            activate: True                # trim adapters and low-quality bases with fastp
+      coverage:
+            activate: True                # mosdepth coverage of the HISAT2 alignments
+      multiqc:
+            activate: True
+
+DifferentialExpression:
+      gene-level:                         # kallisto + DESeq2 (needed by many later steps)
+            activate: True
+      isoform-level:                      # kallisto bootstraps + sleuth
+            activate: True
+      GSEA:                               # hypergeometric GO enrichment of DE genes (and top 5% Fst genes)
+            activate: True
+            gaf: "resources/reference/AgamP4_eggnog_GO.gaf"
+
+# Allele frequencies at known insecticide resistance mutations, counted directly from the BAMs
+# (Vgsc L995S/L995F and other kdr sites, Cyp4j5 L43F, Cyp6p4 I236M, Gste2 I114T/L119V, Ace1 G280S, Rdl A296G/S)
+VariantsOfInterest:
+      activate: True
+      path: "resources/exampleMutations.tsv"   # shipped with rna-seq-pop
+
+VariantAnalysis:
+      activate: True
+      ploidy: 10                          # each library is a pool of 5 diploid females -> 10 genome copies
+      chunks: 9                           # each chromosome arm is split into chunks-1 = 8 regions for freebayes
+
+      pca:
+            activate: True
+            missingness: 1                # keep SNPs called in every sample (paper default)
+
+      geneticDiversity:                   # pi, Watterson's theta, inbreeding coefficient
+            activate: True
+            missingness: 1
+
+      selection:                          # Hudson's Fst per gene and in windows, for each contrast
+            activate: True
+            missingness: 1
+
+            population-branch-statistic:
+                  activate: True
+                  contrasts:              # pop1_pop2_outgroup: branch length of BusiaSelected
+                        - 'BusiaSelected_BusiaParental_Kisumu'
+
+      ancestry:                           # An. gambiae / coluzzii / arabiensis ancestry-informative markers
+            activate: True
+            missingness: 0.5
+            gambcolu: "resources/gamb_vs_colu.zarr"      # shipped with rna-seq-pop
+            arab: "resources/gambcolu_vs_arab.zarr"      # shipped with rna-seq-pop
+
+      karyotype:                          # compkaryo tag SNPs; 2La and 2Rb are the reliable ones
+            activate: True
+            inversions:
+                  - "2La"
+                  - "2Rb"

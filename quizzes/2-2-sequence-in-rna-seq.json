@@ -1,0 +1,132 @@
+[
+  {
+    "question": "Why can the frequency of an allele measured from RNA-seq reads differ from its frequency in the DNA?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Allele-specific expression: one allele may be transcribed more than the other",
+        "correct": true,
+        "feedback": "Correct. Read-based frequencies are expressed allele frequencies."
+      },
+      {
+        "answer": "RNA-seq reads cannot contain SNPs",
+        "correct": false,
+        "feedback": "They can; that is what this module is about."
+      },
+      {
+        "answer": "Kallisto removes non-reference alleles",
+        "correct": false,
+        "feedback": "Variant calling uses HISAT2 alignments, not kallisto."
+      },
+      {
+        "answer": "Pooling always makes RNA and DNA frequencies identical",
+        "correct": false,
+        "feedback": "Pooling adds its own biases (unequal contribution of individuals)."
+      }
+    ]
+  },
+  {
+    "question": "The Busia *Vgsc* gene is not differentially expressed between parental and selected lines, but has Fst in the top 5% of genes. What is the most likely explanation?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Selection on a protein-changing mutation (kdr 995S) raised its frequency without changing expression",
+        "correct": true,
+        "feedback": "Correct. 995S rose from ~25% to 100%."
+      },
+      {
+        "answer": "The DE analysis failed",
+        "correct": false,
+        "feedback": "DE analysis only detects changes in expression."
+      },
+      {
+        "answer": "Vgsc is not expressed in adult females",
+        "correct": false,
+        "feedback": "It is expressed; otherwise there would be no SNPs to compute Fst."
+      },
+      {
+        "answer": "Fst is always high on chromosome 2L",
+        "correct": false,
+        "feedback": "2L is elevated partly due to 2La, but Vgsc sits outside 2La."
+      }
+    ]
+  },
+  {
+    "question": "PBS for `BusiaSelected_BusiaParental_Kisumu` is high for a gene. What does that mean?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Allele frequencies changed specifically on the branch leading to the selected line",
+        "correct": true,
+        "feedback": "Correct. Kisumu is the outgroup that polarises the change."
+      },
+      {
+        "answer": "The gene is overexpressed in BusiaSelected",
+        "correct": false,
+        "feedback": "PBS uses allele frequencies, not expression."
+      },
+      {
+        "answer": "Kisumu and BusiaParental are very different at this gene",
+        "correct": false,
+        "feedback": "That is T between those two; PBS subtracts it."
+      },
+      {
+        "answer": "The gene has low diversity in all three groups",
+        "correct": false,
+        "feedback": "Low diversity everywhere gives low Fst and low PBS."
+      }
+    ]
+  },
+  {
+    "question": "Many genes inside the 2La inversion have high Fst between the parental and selected lines. Why should you be cautious about calling each of them a selection target?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "The inversion changed frequency as a block (33% → 86%), so every gene inside it hitchhikes",
+        "correct": true,
+        "feedback": "Correct. Suppressed recombination links all genes inside the inversion."
+      },
+      {
+        "answer": "Fst cannot be computed inside inversions",
+        "correct": false,
+        "feedback": "It can; it is just hard to interpret."
+      },
+      {
+        "answer": "Genes inside inversions are not expressed",
+        "correct": false,
+        "feedback": "They are expressed normally."
+      },
+      {
+        "answer": "2La is only found in An. coluzzii",
+        "correct": false,
+        "feedback": "2La is polymorphic in An. gambiae too."
+      }
+    ]
+  },
+  {
+    "question": "RNA-Seq-Pop's ancestry markers showed *An. coluzzii* ancestry in the Kisumu strain on the autosomes but not on X. Why is this useful?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "It reveals likely insectary contamination of the reference strain, which affects how we interpret comparisons with Kisumu",
+        "correct": true,
+        "feedback": "Correct. It is a quality check on the experiment."
+      },
+      {
+        "answer": "It proves Kisumu is An. coluzzii",
+        "correct": false,
+        "feedback": "The X chromosome is An. gambiae; the pattern suggests hybridisation."
+      },
+      {
+        "answer": "It shows the Busia colony is contaminated",
+        "correct": false,
+        "feedback": "Busia was almost entirely An. gambiae."
+      },
+      {
+        "answer": "It means AIMs do not work on RNA-seq",
+        "correct": false,
+        "feedback": "They worked well enough to detect this."
+      }
+    ]
+  }
+]

@@ -1,0 +1,132 @@
+[
+  {
+    "question": "Why must treatment names in `samples.tsv` not contain underscores?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "RNA-Seq-Pop splits contrasts such as `Kisumu_BusiaParental` on the underscore",
+        "correct": true,
+        "feedback": "Correct. `A_B` is read as control A vs case B, and PBS contrasts as pop1_pop2_outgroup."
+      },
+      {
+        "answer": "Snakemake does not allow underscores in wildcards",
+        "correct": false,
+        "feedback": "Snakemake allows them; the constraint comes from RNA-Seq-Pop."
+      },
+      {
+        "answer": "FASTQ files cannot contain underscores",
+        "correct": false,
+        "feedback": "The FASTQs are named {sampleID}_1.fastq.gz, which contains an underscore."
+      },
+      {
+        "answer": "DESeq2 rejects them",
+        "correct": false,
+        "feedback": "DESeq2 does not care; RNA-Seq-Pop parses the contrast strings."
+      }
+    ]
+  },
+  {
+    "question": "Each Busia library is RNA from a pool of five diploid females. What `ploidy` should freebayes use?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "10",
+        "correct": true,
+        "feedback": "Correct. 5 mosquitoes × 2 genome copies."
+      },
+      {
+        "answer": "2",
+        "correct": false,
+        "feedback": "That would be right for individual mosquitoes."
+      },
+      {
+        "answer": "5",
+        "correct": false,
+        "feedback": "Each mosquito carries two copies of each autosome."
+      },
+      {
+        "answer": "16",
+        "correct": false,
+        "feedback": "16 is the number of libraries, not genome copies per library."
+      }
+    ]
+  },
+  {
+    "question": "In the Busia study, why did RNA-Seq-Pop find *Vgsc*-995S selection that a differential expression analysis would miss?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "The kdr mutation changes the protein, not the gene's expression; Vgsc was not DE but its allele frequency and Fst changed",
+        "correct": true,
+        "feedback": "Correct. Target-site mutations are found in the sequence, not the counts."
+      },
+      {
+        "answer": "Vgsc is not in the reference transcriptome",
+        "correct": false,
+        "feedback": "It is (AGAP004707, 13 annotated transcripts)."
+      },
+      {
+        "answer": "DESeq2 cannot test genes on chromosome 2L",
+        "correct": false,
+        "feedback": "It tests all genes."
+      },
+      {
+        "answer": "Kallisto discards reads with mutations",
+        "correct": false,
+        "feedback": "Pseudoalignment tolerates SNPs; the reads are still counted."
+      }
+    ]
+  },
+  {
+    "question": "You add a new contrast to `config.yaml` and rerun. Which jobs does Snakemake rerun?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Only the jobs whose outputs or parameters depend on the contrasts, e.g. DESeq2, Fst and GSEA",
+        "correct": true,
+        "feedback": "Correct. Kallisto, HISAT2 and freebayes outputs are unchanged, so they are kept."
+      },
+      {
+        "answer": "Everything, from trimming onwards",
+        "correct": false,
+        "feedback": "Snakemake only rebuilds missing or out-of-date outputs."
+      },
+      {
+        "answer": "Nothing, until you delete results/",
+        "correct": false,
+        "feedback": "New target files make the relevant rules run."
+      },
+      {
+        "answer": "Only freebayes",
+        "correct": false,
+        "feedback": "Variant calling does not depend on contrasts."
+      }
+    ]
+  },
+  {
+    "question": "Why do we clone RNA-Seq-Pop with `--branch v2.3.0` rather than the default branch?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "A tagged release fixes the code, so the run can be reproduced; the default branch keeps changing",
+        "correct": true,
+        "feedback": "Correct. Rule names and outputs have changed on master since v2.3.0."
+      },
+      {
+        "answer": "The default branch does not contain a Snakefile",
+        "correct": false,
+        "feedback": "It does."
+      },
+      {
+        "answer": "Git cannot clone the default branch with --depth 1",
+        "correct": false,
+        "feedback": "It can."
+      },
+      {
+        "answer": "v2.3.0 runs faster",
+        "correct": false,
+        "feedback": "Speed is not the reason; reproducibility is."
+      }
+    ]
+  }
+]

@@ -1,0 +1,132 @@
+[
+  {
+    "question": "Two genes each have 400 reads in a sample. Gene A is 1 kb long and gene B is 4 kb long. Which statement is true?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Gene A has a higher TPM, because TPM corrects for transcript length",
+        "correct": true,
+        "feedback": "Correct. Per base of transcript, A has four times as many reads."
+      },
+      {
+        "answer": "They have the same TPM, because they have the same count",
+        "correct": false,
+        "feedback": "TPM divides counts by length before scaling."
+      },
+      {
+        "answer": "Gene B has a higher TPM, because it is longer",
+        "correct": false,
+        "feedback": "Longer transcripts collect more reads for the same expression, so TPM corrects downwards."
+      },
+      {
+        "answer": "TPM cannot be computed without replicates",
+        "correct": false,
+        "feedback": "TPM is computed per sample."
+      }
+    ]
+  },
+  {
+    "question": "Why does DESeq2 use a negative binomial rather than a Poisson model for counts?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Biological replicates vary more than Poisson allows; the NB adds a dispersion term so variance can exceed the mean",
+        "correct": true,
+        "feedback": "Correct. Var = μ + αμ²."
+      },
+      {
+        "answer": "Counts can be negative",
+        "correct": false,
+        "feedback": "Counts are never negative."
+      },
+      {
+        "answer": "The Poisson distribution is only for single-end reads",
+        "correct": false,
+        "feedback": "It has nothing to do with read layout."
+      },
+      {
+        "answer": "To correct for gene length",
+        "correct": false,
+        "feedback": "Gene length cancels out when the same gene is compared between samples."
+      }
+    ]
+  },
+  {
+    "question": "Suppose SAP2 has log2FoldChange = 3.4 in `results/genediff/BusiaParental_BusiaSelected.csv`. What does this mean?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "SAP2 is about 10-fold higher in BusiaSelected than in BusiaParental",
+        "correct": true,
+        "feedback": "Correct. 2^3.4 ≈ 10.6; positive log2FC means higher in the second (case) group."
+      },
+      {
+        "answer": "SAP2 is about 3.4-fold higher in BusiaSelected",
+        "correct": false,
+        "feedback": "The value is on the log2 scale."
+      },
+      {
+        "answer": "SAP2 is about 10-fold higher in BusiaParental",
+        "correct": false,
+        "feedback": "The contrast is control_case, so positive = higher in the case (BusiaSelected)."
+      },
+      {
+        "answer": "SAP2 has 3.4 times more reads than average",
+        "correct": false,
+        "feedback": "log2FC compares the two groups, not the gene with the average."
+      }
+    ]
+  },
+  {
+    "question": "You find 5,657 genes with padj < 0.05. Roughly how many of these do you expect to be false positives?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "About 5%, i.e. ~280",
+        "correct": true,
+        "feedback": "Correct. Benjamini–Hochberg controls the false discovery rate among the genes you call significant."
+      },
+      {
+        "answer": "None, because the p-values were adjusted",
+        "correct": false,
+        "feedback": "FDR control limits, but does not remove, false positives."
+      },
+      {
+        "answer": "5% of all ~13,000 genes tested",
+        "correct": false,
+        "feedback": "That is the family-wise idea for raw p-values; FDR is a proportion of the discoveries."
+      },
+      {
+        "answer": "It cannot be estimated",
+        "correct": false,
+        "feedback": "That is exactly what the FDR estimates."
+      }
+    ]
+  },
+  {
+    "question": "In a hypergeometric enrichment test, what is being compared?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "The number of genes in your list with a GO term, against the number expected if the list were a random draw from all annotated genes",
+        "correct": true,
+        "feedback": "Correct."
+      },
+      {
+        "answer": "The mean log2FC of genes with the GO term against genes without it",
+        "correct": false,
+        "feedback": "That is closer to a rank- or score-based method."
+      },
+      {
+        "answer": "The expression of a GO term between two groups",
+        "correct": false,
+        "feedback": "GO terms are not expressed; genes are."
+      },
+      {
+        "answer": "The length of genes with and without the GO term",
+        "correct": false,
+        "feedback": "Gene length is not part of the test."
+      }
+    ]
+  }
+]

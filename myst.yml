@@ -43,6 +43,7 @@ project:
     - title: Assessment
       children:
         - file: assessment/gene-dossier-template.md
+        - file: assessment/rubric.md
 site:
   template: book-theme
   options:
