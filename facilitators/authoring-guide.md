@@ -68,3 +68,9 @@ need conda.
   you cannot execute it).
 - Plain, direct British English. Short paragraphs. Explain *why* before *how*.
 - Save notebooks with outputs if you could execute them; otherwise with outputs cleared.
+- Plotly: set the renderer so saved figures show in the book (it cannot run HTML scripts):
+  ```python
+  import sys
+  pio.renderers.default = "colab" if "google.colab" in sys.modules else "plotly_mimetype+notebook_connected"
+  ```
+  If a notebook was saved with an HTML renderer, fix it with `python scripts/plotly_outputs_to_mimetype.py <notebook>`.
