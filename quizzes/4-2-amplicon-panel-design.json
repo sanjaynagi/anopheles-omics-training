@@ -1,0 +1,184 @@
+[
+  {
+    "question": "In the Ag-vampIR protocol, what is added to each amplicon during the second PCR?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Sample-specific i5 and i7 index sequences plus the Illumina adapters, so hundreds of mosquitoes can be pooled on one flow cell",
+        "correct": true,
+        "feedback": "Correct. 96 custom i7 indexes combined with 16 i5 indexes give a theoretical maximum of 1,536 samples per flow cell."
+      },
+      {
+        "answer": "The locus-specific primers, which are held back from PCR1 to avoid dimers",
+        "correct": false,
+        "feedback": "The locus-specific primers are all in PCR1; that is what makes PCR1 the multiplex step."
+      },
+      {
+        "answer": "Fluorescent probes for each target locus",
+        "correct": false,
+        "feedback": "Probes belong to qPCR assays. In amplicon sequencing the genotype is read from sequencing reads, not from fluorescence."
+      },
+      {
+        "answer": "The 2'-O-methyl modified bases that suppress primer dimers",
+        "correct": false,
+        "feedback": "Those modifications are built into the synthesised locus-specific primers, not added by a PCR."
+      }
+    ]
+  },
+  {
+    "question": "Which constraint becomes disproportionately harder as a panel grows from 10 to 80 amplicons?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Primer dimers, because the number of primer-primer interactions grows quadratically (20 primers give 190 comparisons; 160 primers give 12,720)",
+        "correct": true,
+        "feedback": "Correct, and it is why multiplex design has to be posed as an optimisation problem rather than solved by inspecting alignments."
+      },
+      {
+        "answer": "Amplicon length, because longer panels need longer amplicons",
+        "correct": false,
+        "feedback": "Amplicon length is set by your read length and is independent of how many amplicons there are."
+      },
+      {
+        "answer": "Tm matching, because Tm requirements multiply with the number of primers",
+        "correct": false,
+        "feedback": "Tm matching does get harder, but only linearly: every primer must fall in one window, however many there are."
+      },
+      {
+        "answer": "The reference genome download, which scales with panel size",
+        "correct": false,
+        "feedback": "The genome is downloaded once and is the same size regardless of the panel."
+      }
+    ]
+  },
+  {
+    "question": "A MiSeq v2 run yields about 15 million read pairs. You sequence 500 mosquitoes across 80 amplicons. Roughly what mean coverage per amplicon per sample do you expect, and why aim so far above the 20-30x needed to call a diploid genotype?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "About 375 read pairs, and the margin absorbs uneven amplification between amplicons, samples and plates",
+        "correct": true,
+        "feedback": "Correct: 15,000,000 / (500 x 80) is about 375. Some amplicons always run hot and some cold, so the mean must sit well above the minimum you can tolerate."
+      },
+      {
+        "answer": "About 375 read pairs, and the excess is needed because Illumina reads are error-prone",
+        "correct": false,
+        "feedback": "The arithmetic is right but the reason is not: Illumina's raw error rate is about 0.1%. The margin exists to cover uneven amplification."
+      },
+      {
+        "answer": "About 30 read pairs, which is exactly the minimum needed",
+        "correct": false,
+        "feedback": "Check the arithmetic: 15,000,000 / (500 x 80) is about 375, not 30."
+      },
+      {
+        "answer": "About 30,000 read pairs, so coverage is never a constraint in amplicon sequencing",
+        "correct": false,
+        "feedback": "Too high by a factor of about 80, and coverage certainly is a constraint: adding amplicons or samples divides the same reads further."
+      }
+    ]
+  },
+  {
+    "question": "Ag-vampIR includes tagging SNPs at the Cyp6aa/p, Gste, Cyp9k1 and 34 Mb loci. Why use tagging SNPs rather than the causal variants?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "They mark a swept haplotype identified in Ag1000G, which is cheaper and more robust than genotyping a causal variant that is often unknown",
+        "correct": true,
+        "feedback": "Correct. This is the direct link from a selection scan to a surveillance assay: a sweep found in the atlas becomes a tagging-SNP amplicon."
+      },
+      {
+        "answer": "Tagging SNPs have higher minor allele frequencies, which makes them easier to amplify",
+        "correct": false,
+        "feedback": "Allele frequency does not affect amplification, and a tag can be at any frequency."
+      },
+      {
+        "answer": "Causal variants cannot be detected by short-read sequencing",
+        "correct": false,
+        "feedback": "Causal SNPs are perfectly detectable when known. The difficulty is that for metabolic resistance they usually are not known."
+      },
+      {
+        "answer": "Tagging SNPs are synonymous, so they are under no selection and drift neutrally",
+        "correct": false,
+        "feedback": "The opposite is the point: a tag is useful precisely because it is dragged along by selection on the haplotype it sits on."
+      }
+    ]
+  },
+  {
+    "question": "Why do ANOSPP and Ag-vampIR need different design and analysis strategies?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Ag-vampIR targets known positions in one reference genome and calls genotypes, whereas ANOSPP must amplify across a whole genus, so its primers sit in conserved flanks and it compares haplotypes instead",
+        "correct": true,
+        "feedback": "Correct. That is why anospp-analysis starts from DADA2 haplotype tables and classifies by k-mer distance to a reference index, rather than calling reference-based genotypes."
+      },
+      {
+        "answer": "ANOSPP is sequenced on Nanopore and Ag-vampIR on Illumina",
+        "correct": false,
+        "feedback": "Both are Illumina panels; ANOSPP runs about 800 mosquitoes per MiSeq run."
+      },
+      {
+        "answer": "ANOSPP has far more amplicons, so it needs a different analysis",
+        "correct": false,
+        "feedback": "ANOSPP has fewer amplicons (62 nuclear loci plus two Plasmodium loci). The difference is in what the loci are for, not how many there are."
+      },
+      {
+        "answer": "Ag-vampIR detects Plasmodium, which requires genotype calling",
+        "correct": false,
+        "feedback": "It is ANOSPP that carries the two conserved Plasmodium mitochondrial loci; Ag-vampIR does not target Plasmodium at all."
+      }
+    ]
+  },
+  {
+    "question": "When you ran `multiply pipeline` on the An. gambiae panel, snpcheck reported no variation data. What is the consequence, and how would you fix it?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "The panel was chosen without any SNP-in-primer cost term; you would supply a BED of Ag3 segregating sites for your cohort, register it in genomes/variation, and add a matching cost term",
+        "correct": true,
+        "feedback": "Correct. multiply ships variation tracks for P. falciparum only, so for An. gambiae that cost term is simply absent and has to be checked separately with AnoPrimer, or supplied as a new track."
+      },
+      {
+        "answer": "The pipeline silently fell back to the Plasmodium falciparum variation data, so the SNP counts are wrong",
+        "correct": false,
+        "feedback": "No fallback occurs: the step reports that no data is available and select runs without that term."
+      },
+      {
+        "answer": "Nothing was affected, because primer3 already avoids polymorphic sites",
+        "correct": false,
+        "feedback": "primer3 has no population data at all. It sees only the reference sequence."
+      },
+      {
+        "answer": "The whole pipeline failed and no multiplex was produced",
+        "correct": false,
+        "feedback": "It completed: the design still has primer3 penalty and mispriming as individual costs, and dimer potential as a pairwise cost."
+      }
+    ]
+  },
+  {
+    "question": "In the design you ran, most predicted off-target amplicons were forward primers from the Cyp6p3 amplicon pairing with reverse primers from Cyp6p4, giving products of about 2.2 kb. Why does this arise, and how worrying is it?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "The two targets are only about 5 kb apart on 2R, so cross-pairing is geometrically possible; long products amplify poorly under a short-amplicon programme, so it is a nuisance rather than a disaster, but only a pool-wide check reveals it",
+        "correct": true,
+        "feedback": "Correct. This is exactly the class of problem invisible when designing each assay separately, which is why clustered targets must be checked as a pool."
+      },
+      {
+        "answer": "The primers are non-specific and must all be redesigned before the panel can be used",
+        "correct": false,
+        "feedback": "Too strong. Each primer is specific to its own site; the products arise from combining primers that are individually fine."
+      },
+      {
+        "answer": "It shows the Cyp6 cluster is duplicated in the reference genome",
+        "correct": false,
+        "feedback": "No. Cyp6p3 and Cyp6p4 are distinct paralogous genes in the reference, both present once."
+      },
+      {
+        "answer": "It is an artefact of using three primer3 settings files, and disappears with one",
+        "correct": false,
+        "feedback": "The candidate pool size changes, but the geometry does not: the targets are still 5 kb apart."
+      }
+    ]
+  }
+]

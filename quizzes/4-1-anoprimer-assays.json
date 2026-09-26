@@ -1,0 +1,158 @@
+[
+  {
+    "question": "You are designing RT-qPCR primers to measure CYP6AA1 expression. Why does AnoPrimer force one primer to span an exon-exon junction?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Because the junction only exists in mature mRNA, so residual genomic DNA in the RNA extraction cannot be amplified",
+        "correct": true,
+        "feedback": "Correct. RNA extractions almost always carry some gDNA. A pair sitting inside one exon amplifies that gDNA happily and inflates apparent expression; a junction-spanning primer cannot."
+      },
+      {
+        "answer": "Because exon junctions have a higher GC content, which raises the primer Tm",
+        "correct": false,
+        "feedback": "No. GC content at junctions is not systematically different, and Tm is controlled by the primer3 parameters."
+      },
+      {
+        "answer": "Because it makes the amplicon shorter, which improves amplification efficiency",
+        "correct": false,
+        "feedback": "No. Amplicon length is set by min_amplicon_size and max_amplicon_size, independently of where the junction falls."
+      },
+      {
+        "answer": "Because reverse transcriptase can only initiate at an exon junction",
+        "correct": false,
+        "feedback": "No. Reverse transcription is primed by oligo-dT or random primers across the whole transcript."
+      }
+    ]
+  },
+  {
+    "question": "A SNP is segregating at 60% frequency in your cohort. At which position within a 20-base primer would it do the most damage?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "At the terminal 3' base",
+        "correct": true,
+        "feedback": "Correct. The 3' end sits in the polymerase active site. A mismatch there can shift Cq by 5-7 cycles or abolish amplification entirely, producing a null allele."
+      },
+      {
+        "answer": "At the terminal 5' base",
+        "correct": false,
+        "feedback": "The 5' end is the most tolerant position: it is furthest from the active site, and 5' bases can even be modified deliberately (adapter tails, fluorophores)."
+      },
+      {
+        "answer": "Exactly in the middle of the primer",
+        "correct": false,
+        "feedback": "A central mismatch lowers duplex stability somewhat, but is far less damaging than one at the 3' end. That said, the middle is exactly where you want the SNP in an allele-specific probe."
+      },
+      {
+        "answer": "The position makes no difference, only the frequency matters",
+        "correct": false,
+        "feedback": "Position matters a great deal. Effects range from negligible at the 5' end to complete failure at the terminal 3' base."
+      }
+    ]
+  },
+  {
+    "question": "You want to know how many copies of Cyp6aa1 an individual mosquito carries. Which AnoPrimer assay type and template should you use?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "gDNA primers, run on genomic DNA, alongside a second assay at a single-copy reference locus",
+        "correct": true,
+        "feedback": "Correct. Copy number is measured on gDNA as a ratio to a locus you know is present in two copies, via delta-delta-Cq against a known two-copy calibrator strain."
+      },
+      {
+        "answer": "cDNA primers spanning an exon junction, run on cDNA",
+        "correct": false,
+        "feedback": "That measures transcript abundance, not copy number, and the junction trick would actively prevent amplification of the genomic template you need here."
+      },
+      {
+        "answer": "probe only, run on genomic DNA",
+        "correct": false,
+        "feedback": "A probe alone genotypes a base; it does not quantify a locus, and the 'probe' assay type designs no primers to amplify with."
+      },
+      {
+        "answer": "gDNA primers + probe, using two allele-specific probes",
+        "correct": false,
+        "feedback": "Allele-specific probes distinguish two alleles at one position. A duplication changes the number of copies, not the base, so there is no second allele to discriminate."
+      }
+    ]
+  },
+  {
+    "question": "Why are allele-specific probes for SNP genotyping usually designed short, and what problem do LNA bases solve?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "A single mismatch destabilises a short duplex proportionally more, so discrimination is better; LNA bases raise the Tm so a short probe still binds at the annealing temperature, and sharpen the matched-versus-mismatched Tm difference",
+        "correct": true,
+        "feedback": "Correct. Locking the sugar conformation reduces the entropic cost of binding (roughly +2 to +8 degrees C per substitution) and makes the duplex less tolerant of a distorted base pair."
+      },
+      {
+        "answer": "Short probes are cheaper to synthesise; LNA bases make them resistant to nuclease degradation",
+        "correct": false,
+        "feedback": "Cost is not the reason, and nuclease resistance is irrelevant in a PCR. The hydrolysis probe is in fact meant to be cleaved, by the polymerase."
+      },
+      {
+        "answer": "Short probes are hydrolysed faster by the polymerase; LNA bases increase fluorescence yield",
+        "correct": false,
+        "feedback": "No. LNA bases affect duplex thermodynamics, not the fluorophore's quantum yield."
+      },
+      {
+        "answer": "Short probes avoid exon junctions; LNA bases prevent secondary structure",
+        "correct": false,
+        "feedback": "Exon junctions are an RT-qPCR consideration, not a genotyping one, and secondary structure is handled by primer3's self-complementarity limits."
+      }
+    ]
+  },
+  {
+    "question": "AnoPrimer's SNP plot for your probe shows two blue points at equal frequency: your target SNP, and a second site nine bases away. What does this mean, and what should you do?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "The two sites are in linkage on the same haplotype, so the probe reports the haplotype rather than the single SNP; either accept that deliberately or move the probe so only the target base varies",
+        "correct": true,
+        "feedback": "Correct. Equal frequencies at two nearby sites are the signature of a swept haplotype. A mosquito carrying only one of the two changes would genotype as wild type, so you must know which you are measuring."
+      },
+      {
+        "answer": "The probe has a sequencing error and should be redesigned from scratch",
+        "correct": false,
+        "feedback": "The plot shows population allele frequencies from Ag3 genotype calls, not errors in your probe."
+      },
+      {
+        "answer": "Nothing needs doing: only variation in the primers matters, not in the probe",
+        "correct": false,
+        "feedback": "The opposite is true for a hydrolysis-probe assay. The probe defines the specificity of the reaction, so unexpected variation under it changes what the assay measures."
+      },
+      {
+        "answer": "It means the probe will not bind at all and the reaction will fail",
+        "correct": false,
+        "feedback": "A single extra mismatch reduces duplex stability but does not necessarily abolish binding. The problem is interpretative: the probe now reports a haplotype."
+      }
+    ]
+  },
+  {
+    "question": "gget_blat_genome() returns no hits for one of your primers. What should you conclude?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Nothing about specificity: 20-mers are at the limit of BLAT's sensitivity, so a missing result is uninformative and you should check the pair in Primer-BLAST",
+        "correct": true,
+        "feedback": "Correct. Absence of a BLAT result is not evidence of specificity. BLAT here also only searches the older AgamP3 assembly."
+      },
+      {
+        "answer": "That the primer is perfectly specific, since no other binding site was found",
+        "correct": false,
+        "feedback": "A tempting but dangerous reading. The most likely explanation is that the query was simply too short for BLAT to report."
+      },
+      {
+        "answer": "That the primer sequence contains an error, since it does not match the genome",
+        "correct": false,
+        "feedback": "Unlikely: AnoPrimer took the sequence straight from the reference genome template it built."
+      },
+      {
+        "answer": "That the primer lies in a repetitive region",
+        "correct": false,
+        "feedback": "A repetitive primer would return many hits, not none."
+      }
+    ]
+  }
+]

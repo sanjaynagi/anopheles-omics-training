@@ -1,0 +1,25 @@
+# Targets for the module 4.2 multiply practical: a small Illumina amplicon panel for the
+# Busia (Uganda) / Siaya (Kenya) resistance loci followed through this course.
+#
+# Coordinates are AgamP4 and, like all BED files, 0-based half-open. Each target is a SNP
+# (or a short region) plus 10 bp of context, which multiply then pads out to a full amplicon.
+# Names and positions follow the Ag-vampIR panel (AmpSeeker/config/ag-vampir.bed) except
+# where marked "new"; every reference base was checked against the Ensembl AgamP4 FASTA.
+# Column 4 is the target name, which multiply uses to name the primers.
+#
+# The triple mutant of Njoroge et al. 2022 (doi:10.1111/mec.16591) needs three markers:
+# the Cyp6aa1 duplication (Cyp6aa1_dup below, read out from amplicon depth), Cyp6p4-I236M
+# (below), and a ZZB transposable element insertion. The TE cannot be targeted from a design
+# file like this, because the insertion is absent from the AgamP4 reference: there is no
+# sequence for primer3 to place a primer in. It needs a junction PCR against the transposon
+# consensus instead.
+2L	2422640	2422662	Vgsc_L995FS
+2L	25635962	25635983	Cyp4j5_L43F
+2L	34100747	34100768	34mb_tag2
+2R	28481489	28481510	Cyp6aa1_dup
+2R	28492868	28492889	Cyp6p3_I88T
+2R	28497956	28497977	Cyp6p4_I236M
+2R	28502839	28502860	Cyp6_tag8
+3R	28596173	28596194	Gste4_K190E
+3R	28598155	28598176	Gste2_I114T
+X	15249643	15249664	Cyp9k1_tag1
