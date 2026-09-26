@@ -215,7 +215,7 @@ dry run with 2–3 testers, then CI.
 1. **Dataset:** Busia (RNA-seq) + Siaya/VK7 (amplicon). Bouaké is an optional extension once it is deposited.
 2. **Snakemake compute:** GitHub Codespaces (see below).
 3. **Book:** Jupyter Book 2 / MyST.
-4. **Hosting:** new repo `sanjaynagi/malaria-software-training`.
+4. **Hosting:** new repo `sanjaynagi/anopheles-omics-training`.
 5. **Nextflow:** lecture only.
 6. **AnoSpp:** lecture/case study only.
 7. **Environments: pixi first** (course env, participants' projects, the Codespace Snakemake env); conda only where Snakemake's per-rule `--use-conda` envs need it.

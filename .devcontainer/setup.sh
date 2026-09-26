@@ -16,7 +16,7 @@ set -euo pipefail
 RNASEQPOP_VERSION="v2.3.0"
 AMPSEEKER_VERSION="v0.7.0"
 
-REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"   # /workspaces/malaria-software-training
+REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"   # /workspaces/anopheles-omics-training
 WORKSPACE="$(dirname "$REPO_DIR")"                              # /workspaces
 MANIFEST="$REPO_DIR/workflows/pixi.toml"
 PROFILE_DIR="${SNAKEMAKE_PROFILE:-$HOME/.config/snakemake/codespace}"

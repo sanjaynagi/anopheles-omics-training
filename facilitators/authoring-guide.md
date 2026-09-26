@@ -6,7 +6,7 @@ Every module notebook follows the same structure as the MalariaGEN–PAMCA cours
 ## Structure
 
 1. **Colab badge** (first markdown cell):
-   `[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sanjaynagi/malaria-software-training/blob/main/<path/to/notebook.ipynb>)`
+   `[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sanjaynagi/anopheles-omics-training/blob/main/<path/to/notebook.ipynb>)`
 2. `# X.Y Title`, then `**Theme:** Theory | Analysis | Tools & technology`, then a short intro that links the module to the study (see `study-brief.md`) and to the previous module.
 3. `## Learning objectives`: 3–5 bullets, starting "At the end of this module you will be able to:".
 4. `## Setup`: pinned installs (`%pip install -q --no-warn-conflicts pkg==x.y.z`) and imports.
@@ -30,7 +30,7 @@ Every module notebook follows the same structure as the MalariaGEN–PAMCA cours
    ```python
    %pip install -q jupyterquiz==2.9.6.4
    from jupyterquiz import display_quiz
-   display_quiz("https://raw.githubusercontent.com/sanjaynagi/malaria-software-training/main/quizzes/<notebook-stem>.json")
+   display_quiz("https://raw.githubusercontent.com/sanjaynagi/anopheles-omics-training/main/quizzes/<notebook-stem>.json")
    ```
 9. `## Summary`, then `## Well done!`, then `## References` (numbered, with DOIs).
 

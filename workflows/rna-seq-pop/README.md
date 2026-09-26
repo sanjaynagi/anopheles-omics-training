@@ -86,8 +86,8 @@ cd /workspaces/rna-seq-pop
 git describe --tags     # v2.3.0
 
 # 2. Add the Busia configuration
-cp /workspaces/malaria-software-training/workflows/rna-seq-pop/config.yaml config/config.yaml
-cp /workspaces/malaria-software-training/workflows/rna-seq-pop/samples.tsv config/samples.tsv
+cp /workspaces/anopheles-omics-training/workflows/rna-seq-pop/config.yaml config/config.yaml
+cp /workspaces/anopheles-omics-training/workflows/rna-seq-pop/samples.tsv config/samples.tsv
 
 # 3. Get the mini dataset (reads/ and reference/) into resources/
 BUSIA_MINI_URL="..."   # TODO(data): Zenodo record of the Busia mini dataset (busia-mini.tar.gz)

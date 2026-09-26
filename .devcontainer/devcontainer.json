@@ -2,7 +2,7 @@
   // Codespace for the Snakemake sessions (RNA-Seq-Pop on Day 1, AmpSeeker on Day 4).
   // Setup is done by .devcontainer/setup.sh when the codespace is first created
   // (about 5 minutes). See facilitators/codespaces.md.
-  "name": "malaria-software-training (Snakemake)",
+  "name": "anopheles-omics-training (Snakemake)",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
 
   // A 4-core / 16 GB machine. Codespaces offers the smallest machine that meets these.

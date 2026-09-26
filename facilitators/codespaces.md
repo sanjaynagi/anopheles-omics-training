@@ -36,7 +36,7 @@ Each workflow's own conda environments are built the first time it runs (another
 
 ## Creating a codespace (participants)
 
-1. Fork `sanjaynagi/malaria-software-training` (**Fork** button, top right).
+1. Fork `sanjaynagi/anopheles-omics-training` (**Fork** button, top right).
 2. On your fork, click **Code → Codespaces → ⋯ → New with options**.
 3. Check that **Machine type** is **4-core**, then **Create codespace**.
 4. Wait for setup to finish (the terminal says `[setup] Done`). Open a **new** terminal and run
@@ -76,7 +76,7 @@ Next time, reopen the same codespace from **Code → Codespaces** or
 | Problem | Fix |
 |---|---|
 | Setup failed or was interrupted | `F1` → **Codespaces: View Creation Log** to see the error, then run `bash .devcontainer/setup.sh` again in a terminal. It skips steps already done. |
-| `snakemake: command not found` | Open a new terminal, or run `eval "$(pixi shell-hook --manifest-path /workspaces/malaria-software-training/workflows/pixi.toml)"`. |
+| `snakemake: command not found` | Open a new terminal, or run `eval "$(pixi shell-hook --manifest-path /workspaces/anopheles-omics-training/workflows/pixi.toml)"`. |
 | No 4-core option | The repo must be your personal fork. If only 2-core is offered, use it: runs take longer. |
 | The run stopped when the codespace went idle | Restart the codespace and run the same `snakemake` command. Finished jobs are not repeated, and half-finished ones are redone: the profile sets `--rerun-incomplete` (add it yourself if you run without the profile). Raise the idle timeout to 240 min first. |
 | `LockException` / "Directory cannot be locked" | A previous run was killed. Run `snakemake --unlock` (with the same `--configfile`), then rerun. |

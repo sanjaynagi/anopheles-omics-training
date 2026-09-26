@@ -30,7 +30,7 @@ Snakemake 7.32.4 with pixi (`workflows/pixi.toml`), so `snakemake` is on the PAT
 Elsewhere: `pixi shell --manifest-path workflows/pixi.toml`.
 
 ```bash
-cd /workspaces/malaria-software-training
+cd /workspaces/anopheles-omics-training
 bash data/prepare_siaya.sh          # all 360 samples (~0.8 GB); add "-n 12" for a 51-sample class run
 cd /workspaces/AmpSeeker
 snakemake --cores 4 --use-conda --configfile config/siaya.yaml -n    # dry run (~4,000 jobs for all samples)
