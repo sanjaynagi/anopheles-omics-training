@@ -1,0 +1,8 @@
+_build/
+.ipynb_checkpoints/
+.DS_Store
+*.pyc
+# workflow run outputs inside codespaces
+workflows/**/results/
+workflows/**/resources/reads/
+workflows/**/.snakemake/

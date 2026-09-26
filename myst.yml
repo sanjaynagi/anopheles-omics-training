@@ -1,0 +1,49 @@
+version: 1
+project:
+  title: "Beyond WGS: transcriptomics, selection and assay design in malaria vectors"
+  description: A training course following one study of pyrethroid resistance around Lake Victoria, from RNA-seq to field amplicon surveillance.
+  authors:
+    - name: Sanjay C. Nagi
+  license: CC-BY-SA-4.0
+  github: https://github.com/sanjaynagi/malaria-software-training
+  jupyter: false
+  toc:
+    - file: index.md
+    - file: study-brief.md
+    - title: "Day 1: Reproducible practice and workflows"
+      children:
+        - file: day-1/about.md
+        - file: day-1/1-1-omics-approaches.ipynb
+        - file: day-1/1-2-reproducible-practice.ipynb
+        - file: day-1/1-3-workflow-managers.ipynb
+        - file: day-1/1-4-running-rna-seq-pop.ipynb
+    - title: "Day 2: Transcriptomics"
+      children:
+        - file: day-2/about.md
+        - file: day-2/2-1-rna-seq-results.ipynb
+        - file: day-2/2-2-sequence-in-rna-seq.ipynb
+        - file: day-2/2-3-anoexpress.ipynb
+    - title: "Day 3: From expression to the genome"
+      children:
+        - file: day-3/about.md
+        - file: day-3/3-1-cnvs-and-snps.ipynb
+        - file: day-3/3-2-selection-atlas.ipynb
+        - file: day-3/3-3-sweep-follow-up.ipynb
+    - title: "Day 4: From discovery to assays"
+      children:
+        - file: day-4/about.md
+        - file: day-4/4-1-anoprimer-assays.ipynb
+        - file: day-4/4-2-amplicon-panel-design.ipynb
+        - file: day-4/4-3-ampseeker.ipynb
+    - title: "Day 5: Synthesis"
+      children:
+        - file: day-5/about.md
+        - file: day-5/5-1-gene-dossier.md
+        - file: day-5/5-2-good-practice.ipynb
+    - title: Assessment
+      children:
+        - file: assessment/gene-dossier-template.md
+site:
+  template: book-theme
+  options:
+    folders: true
