@@ -68,6 +68,8 @@ need conda.
   you cannot execute it).
 - Plain, direct British English. Short paragraphs. Explain *why* before *how*.
 - Save notebooks with outputs if you could execute them; otherwise with outputs cleared.
+- Plotly style: every figure uses the `simple_white` template. Set it once in the setup cell,
+  `pio.templates.default = "simple_white"`, and don't override it in individual plots.
 - Plotly: set the renderer so saved figures show in the book (it cannot run HTML scripts):
   ```python
   import sys
