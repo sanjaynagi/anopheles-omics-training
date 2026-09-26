@@ -17,6 +17,8 @@ LOADER_MIMES = {"application/vnd.bokehjs_load.v0+json", "application/javascript"
 
 
 def extract_figure(html: str) -> dict | None:
+    if "plotly-graph-div" not in html:
+        return None
     start = html.find("Plotly.newPlot(")
     if start == -1:
         return None
@@ -41,7 +43,8 @@ def is_loader(output: dict) -> bool:
     if set(data) - {"text/plain"} <= LOADER_MIMES:
         return True
     html = "".join(data.get("text/html", ""))
-    return set(data) <= {"text/html", "text/plain"} and "window.PlotlyConfig" in html and "newPlot" not in html
+    # A loader sets up Plotly (sometimes embedding the whole library) but draws no figure div.
+    return set(data) <= {"text/html", "text/plain"} and "window.PlotlyConfig" in html and "plotly-graph-div" not in html
 
 
 def convert(path: str) -> int:
